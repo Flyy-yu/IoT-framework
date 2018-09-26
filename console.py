@@ -12,10 +12,11 @@ from banner import banner
 class MyPrompt(Cmd):
     prompt = 'IOT-Power> '
     intro = "Welcome! Type ? to list commands"
+
     def do_hello(self, s):
         if s == '':
             name = input('Your name please: ')
-        else: 
+        else:
             name = s
         print ('Hello', name)
 
@@ -36,7 +37,7 @@ class MyPrompt(Cmd):
         print("Add a new entry to the system.")
 
     def do_netstat(self, input):
-           ## command to run - tcp only ##
+        ## command to run - tcp only ##
         cmd = "netstat -p tcp -f inet"
 
         ## run it ##
@@ -57,7 +58,7 @@ class MyPrompt(Cmd):
     def do_ping(self, input):
         # run the shell as a subprocess:
         p = subprocess.Popen(['python', 'shell.py'],
-                stdin = subprocess.PIPE, stdout = subprocess.PIPE, stderr = subprocess.PIPE, shell = False)
+                             stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
         # wrap p.stdout with a NonBlockingStreamReader object:
         nbsr = NBSR(p.stdout)
         # issue command:
@@ -73,37 +74,36 @@ class MyPrompt(Cmd):
 
     def help_ping(self):
         print("exec ping.py")
-    
+
     def do_new(self, input):
         dirname = os.getcwd()
         with tempfile.NamedTemporaryFile(suffix='.command', dir=dirname) as f:
             f.write('#!/bin/sh\nls\n')
-            #subprocess.call(['sudo chmod u+x', f.name])
+            # subprocess.call(['sudo chmod u+x', f.name])
             os.system("sudo chmod u+x {}".format(f.name))
             command = 'open -W ' + f.name
             p = subprocess.Popen(command, shell=True)
             p.wait()
         p.terminate()
-        #os.system("sudo chmod a+x new_terminal.sh")
-        #subprocess.call("./new_terminal.sh")
+        # os.system("sudo chmod a+x new_terminal.sh")
+        # subprocess.call("./new_terminal.sh")
 
     def help_new(self):
         print("create a new terminal...")
 
     def default(self, input):
-        
+
         if input == 'x' or input == 'q':
             return self.do_exit(input)
         else:
             subprocess.Popen(['/bin/bash', '-c', input], shell=False)
             print("Default Bash Mode, press ? or type help to list commands")
 
-       
-
     _AVAILABLE_COLORS = ('blue', 'green', 'yellow', 'red', 'black')
 
     def complete_color(self, text, line, begidx, endidx):
         return [i for i in _AVAILABLE_COLORS if i.startswith(text)]
+
     do_EOF = do_exit
     help_EOF = help_exit
 

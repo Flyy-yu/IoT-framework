@@ -44,13 +44,11 @@ import os
 import sys
 import cmd
 
-
-
 _version_ = (0, 1, 0)
+
 
 class ListCmdError(Exception):
     pass
-
 
 
 def line2argv(line):
@@ -121,12 +119,12 @@ def line2argv(line):
         if i >= len(line): break
         ch = line[i]
 
-        if ch == "\\" and i+1 < len(line):
+        if ch == "\\" and i + 1 < len(line):
             # escaped char always added to arg, regardless of state
             if arg is None: arg = ""
             if (sys.platform == "win32"
                 or state in ("double-quoted", "single-quoted")
-               ) and line[i+1] not in tuple('"\''):
+                ) and line[i + 1] not in tuple('"\''):
                 arg += ch
             i += 1
             arg += line[i]
@@ -186,15 +184,14 @@ def argv2line(argv):
     escapedArgs = []
     for arg in argv:
         if ' ' in arg and '"' not in arg:
-            arg = '"'+arg+'"'
+            arg = '"' + arg + '"'
         elif ' ' in arg and "'" not in arg:
-            arg = "'"+arg+"'"
+            arg = "'" + arg + "'"
         elif ' ' in arg:
             arg = arg.replace('"', r'\"')
-            arg = '"'+arg+'"'
+            arg = '"' + arg + '"'
         escapedArgs.append(arg)
     return ' '.join(escapedArgs)
-
 
 
 class ListCmd(cmd.Cmd):
@@ -204,7 +201,7 @@ class ListCmd(cmd.Cmd):
     the proper parsing of the command line arguments (particularly handling
     of quoting of args with spaces).
     """
-    #TODO:
+    # TODO:
     # - See the XXX's in this class.
     # - Add an "options" argument to the constructor specifying whether
     #   the special '?' and '!' things should be used. One might want to
@@ -217,8 +214,8 @@ class ListCmd(cmd.Cmd):
     prompt = "(ListCmd) "
 
     def logerror(self, msg):
-        #XXX document this new method
-        sys.stderr.write(msg+'\n')
+        # XXX document this new method
+        sys.stderr.write(msg + '\n')
 
     def cmdloop(self, intro=None):
         """Repeatedly issue a prompt, accept input, parse into an argv, and
@@ -227,7 +224,7 @@ class ListCmd(cmd.Cmd):
                 command loop. This overrides the class "intro" attribute,
                 if any.
         """
-        #XXX Might be nice to add a trap for KeyboardInterrupt which
+        # XXX Might be nice to add a trap for KeyboardInterrupt which
         #    defers to say, self.interrupt, for handling. This handler would
         #    do nothing by default but could offer confirm that the user
         #    wants to cancel.
@@ -235,11 +232,11 @@ class ListCmd(cmd.Cmd):
         if intro is not None:
             self.intro = intro
         if self.intro:
-            sys.stdout.write(str(self.intro)+"\n")
+            sys.stdout.write(str(self.intro) + "\n")
         stop = None
         while not stop:
             if self.cmdqueue:
-                #XXX What is the .cmdqueue? "cmd.py" does not seem to do
+                # XXX What is the .cmdqueue? "cmd.py" does not seem to do
                 #    anything useful with it.
                 line = self.cmdqueue.pop(0)
             else:
@@ -255,7 +252,7 @@ class ListCmd(cmd.Cmd):
                     if not len(line):
                         line = 'EOF'
                     else:
-                        line = line[:-1] # chop \n
+                        line = line[:-1]  # chop \n
             argv = line2argv(line)
             try:
                 argv = self.precmd(argv)
@@ -301,19 +298,19 @@ class ListCmd(cmd.Cmd):
         except TypeError, ex:
             self.logerror("%s: %s" % (cmdName, ex))
             self.logerror("try 'help %s'" % cmdName)
-            if 0:   # for debugging
+            if 0:  # for debugging
                 print
                 import traceback
                 traceback.print_exception(*sys.exc_info())
 
     def default(self, argv):
         self.logerror("unknown syntax: '%s'" % argv2line(argv))
-        #XXX Would like to return 1 here to return an error code for
+        # XXX Would like to return 1 here to return an error code for
         #    a single command line, however this return value is used to
         #    indicate whether a command loop should stop. TODO: separate
         #    these two: return code and whether to stop loop, consider
         #    using a Stop exception or something like that.
-        #return 1
+        # return 1
 
     def _do_one_help(self, arg):
         try:
@@ -324,7 +321,7 @@ class ListCmd(cmd.Cmd):
                 doc = getattr(self, 'do_' + arg).__doc__
             except AttributeError:
                 doc = None
-            if doc: # *do* have help, print that
+            if doc:  # *do* have help, print that
                 sys.stdout.write(doc + '\n')
                 sys.stdout.flush()
             else:
@@ -357,8 +354,7 @@ class ListCmd(cmd.Cmd):
         pass
 
 
-
-#---- self-test
+# ---- self-test
 
 def _test():
     import doctest

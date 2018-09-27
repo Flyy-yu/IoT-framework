@@ -1,0 +1,9 @@
+Trivial File Transfer Protocol (TFTP) is an Internet software utility for transferring files that is simpler to use than the File Transfer Protocol (FTP) but less capable. It is used where user authentication and directory visibility are not required.
+BusyBox v0.61.pre (2003.02.04-12:10+0000) multi-call binary
+Usage: tftp [OPTION]... HOST [PORT]
+Transfers a file from/to a tftp server using "octet" mode.
+Options:
+        -l FILE Local FILE.
+        -r FILE Remote FILE.
+        -g      Get file.
+        -p      Put file.

@@ -1,0 +1,3 @@
+method,required,Get file or Put file?
+filename,required,Set the filename
+ip,required,Please set the target's IP address

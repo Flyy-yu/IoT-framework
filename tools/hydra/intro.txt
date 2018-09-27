@@ -1,0 +1,8 @@
+What is Hydra?
+Hydra is a very well-known and respected network log on cracker (password cracking tool)
+which can support many different services. (Similar projects and tools include medusa and John The Ripper).
+
+reference:
+https://www.concise-courses.com/security/what-is-hydra/
+https://null-byte.wonderhowto.com/how-to/hack-like-pro-crack-online-web-form-passwords-with-thc-hydra-burp-suite-0160643/
+https://null-byte.wonderhowto.com/how-to/hack-like-pro-crack-online-passwords-with-tamper-data-thc-hydra-0155374/

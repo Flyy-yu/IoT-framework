@@ -30,6 +30,7 @@ def get_argument_list(file_path):
     try:
         with open(file_path) as argument_file:
             for line in argument_file:
+                #remove '\n' in the end
                 arg_list.append(line[:-1])
     except IOError:
         print 'Failed to open argument file'
@@ -42,6 +43,7 @@ def get_intro_content(file_path):
     try:
         with open(file_path) as argument_file:
             for line in argument_file:
+                # remove '\n' in the end
                 print line[:-1]
     except IOError:
         print 'Failed to open introduction file'

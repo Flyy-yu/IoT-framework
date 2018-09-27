@@ -1,6 +1,5 @@
 # tftp -g -r filename.txt 20.20.20.1
 
-
 def get_basic_command(method, filename, ip_address):
     if method.lower() == 'get':
         command = 'tftp {} {} {} {}'.format('-g', '-r', filename, ip_address)

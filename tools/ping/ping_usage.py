@@ -1,7 +1,7 @@
 # the basic command: ping 8.8.8.8
 
-def get_basic_command(ip_address):
-    command = 'ping {}'.format(ip_address)
+def get_basic_command(ip):
+    command = 'ping {}'.format(ip)
     return command
 
 

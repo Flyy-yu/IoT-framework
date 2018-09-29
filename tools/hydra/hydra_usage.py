@@ -3,7 +3,7 @@
 import os
 
 
-# TODO add http
+# TODO improve http
 
 def get_basic_command(ip, protocol, wordlist, url='/', form_parameters='username=^USER^&password=^PASS',
                       failed_login_msg='incorrect'):

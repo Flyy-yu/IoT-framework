@@ -1,0 +1,14 @@
+What we do is the following: We constantly send the victim computer ARP answers telling him
+that the MAC address belonging to the IP of the gateway machine (router) is our MAC address.
+After some time the victim computer will believe us and makes a wrong entry in his ARP cache.
+Next time the victim wants to send an IP packet to the gateway he sends the ethernet frame to
+our MAC address so actually we get the IP packet. We do the same thing with the gateway machine
+just the other way round.
+
+reference https://su2.info/doc/arpspoof.php
+
+NOTE:
+You have to run this tools on "The host machine". If you have external USB Wifi adapter,you can run this tool on VM.
+Run each command on separate terminal
+This tool require Root privilege
+#TODO this tools return an array

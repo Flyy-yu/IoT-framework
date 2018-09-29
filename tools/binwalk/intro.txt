@@ -1,0 +1,6 @@
+Binwalk is a fast, easy to use tool for analyzing, reverse engineering, and extracting firmware images.
+
+https://github.com/ReFirmLabs/binwalk
+NOTE: You should run this tools on Linux VM.
+
+#TODO maybe some advance usage?

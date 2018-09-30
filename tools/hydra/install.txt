@@ -1,0 +1,19 @@
+# Apt install
+sudo apt update
+sudo apt install hydra
+
+# Manually Install
+sudo apt install git build-essential libssl-dev libssh-dev libidn11-dev libpcre3-dev libgtk2.0-dev libmysqlclient-dev libpq-dev libsvn-dev firebird-dev libncurses5-dev
+cd ~ & git clone https://github.com/vanhauser-thc/thc-hydra.git
+cd thc-hydra
+./configure
+make
+sudo make install
+
+# Update
+cd ~/thc-hydra
+git pull origin master
+make clean
+./configure
+make
+sudo make install

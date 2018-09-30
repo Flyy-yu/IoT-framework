@@ -10,4 +10,4 @@ def get_basic_command(victimip, myip, routerip):
 
 
 if __name__ == '__main__':
-    print get_basic_command('8.8.8.8', '8.8.8.1', '8.8.8.2')
+    print (get_basic_command('8.8.8.8', '8.8.8.1', '8.8.8.2'))

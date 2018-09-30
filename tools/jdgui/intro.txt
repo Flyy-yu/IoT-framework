@@ -1,0 +1,8 @@
+http://jd.benow.ca/
+JD-GUI is a standalone graphical utility that displays Java source codes of
+“.class” files. You can browse the reconstructed source code with the JD-GUI
+for instant access to methods and fields.
+
+Have your Apk file ready, enter the pull path of the apk name, such as: /home/iot/Desktop/app-debug.apk
+Run the output command should give you a .jar file. Double click "jd-gui-1.4.0.jar" and load the .jar file into
+the program.

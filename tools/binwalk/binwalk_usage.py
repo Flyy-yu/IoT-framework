@@ -7,4 +7,4 @@ def get_basic_command(imagefile):
 
 
 if __name__ == '__main__':
-    print get_basic_command('/Desktop/a.bin')
+    print (get_basic_command('/Desktop/a.bin'))

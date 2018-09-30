@@ -21,5 +21,5 @@ def get_basic_command(ip, protocol, wordlist, url='/', form_parameters='username
 
 
 if __name__ == '__main__':
-    print get_basic_command('192.168.1.1', 'telnet', '/usr/share/wordlists/rockyou.txt')
-    print get_basic_command('192.168.1.1', 'http', '/usr/share/wordlists/rockyou.txt', )
+    print (get_basic_command('192.168.1.1', 'telnet', '/usr/share/wordlists/rockyou.txt'))
+    print (get_basic_command('192.168.1.1', 'http', '/usr/share/wordlists/rockyou.txt', ))

@@ -6,4 +6,4 @@ def get_basic_command(ip):
 
 
 if __name__ == '__main__':
-    print get_basic_command('8.8.8.8')
+    print (get_basic_command('8.8.8.8'))

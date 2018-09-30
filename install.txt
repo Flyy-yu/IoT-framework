@@ -8,6 +8,9 @@ apt-get install python-pip
 apt-get install default-jre
 apt-get install default-jdk
 apt-get install minicom
+apt-get install git python3-pip
+apt-get install libglib2.0-dev
+apt-get install npm
 
 
 apt-get install python-gtk2 python-cairo python-usb python-crypto python-serial python-dev libgcrypt-dev
@@ -16,3 +19,21 @@ apt-get install python-gtk2 python-cairo python-usb python-crypto python-serial 
 
 git clone https://github.com/radare/radare2.git
 sys/install.sh
+
+git clone https://github.com/pxb1988/dex2jar.git
+./gradlew assemble
+
+git clone https://github.com/longld/peda.git ~/peda
+echo "source ~/peda/peda.py" >> ~/.gdbinit
+
+git clone https://www.github.com/threat9/routersploit
+cd routersploit
+python3 -m pip install -r requirements.txt
+pip3 install cffi
+python3 -m pip install -r requirements.txt
+python3 -m pip install bluepy
+python3 rsf.py
+
+
+git clone https://github.com/craigz28/firmwalker.git
+

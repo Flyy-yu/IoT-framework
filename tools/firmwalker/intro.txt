@@ -1,0 +1,7 @@
+https://github.com/craigz28/firmwalker
+A simple bash script for searching the extracted or mounted firmware file system.
+
+Enter the full path of the extracted framework root directory, such as:
+/home/iot/Desktop/cpio-root
+
+The firmwalker script will create a file call result.txt in Desktop directory

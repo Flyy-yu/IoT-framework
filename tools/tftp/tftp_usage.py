@@ -12,4 +12,5 @@ def get_basic_command(method, filename, ip):
 
 
 if __name__ == '__main__':
-    print get_basic_command('Get', '~/file/txt', '8.8.8.8')
+    print (get_basic_command('Get', '~/file/txt', '8.8.8.8'))
+

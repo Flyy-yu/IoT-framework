@@ -27,3 +27,6 @@ ip,required,Please set the target's IP address
 
 !!! you have to follow the order in the argument list, to pass variable to get_basic_command() function
 -------------------------------------------------------------------------------------
+#TODO try this
+https://github.com/devttys0/baudrate/blob/master/baudrate.py
+https://github.com/adi0x90/attifyos

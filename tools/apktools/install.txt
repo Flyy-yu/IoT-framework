@@ -1,0 +1,25 @@
+https://ibotpeaches.github.io/Apktool/install/
+
+# Install Java 8
+sudo add-apt-repository ppa:webupd8team/java
+sudo apt update
+sudo apt install oracle-java8-installer
+While the install process, you have to accept Java license to continue downloading & installing Java binaries.
+
+# Check Java Installation
+javac -version
+output: javac 1.8.0_181
+java -version
+output: java version "1.8.0_181"
+
+# Install Apktool
+wget https://raw.githubusercontent.com/iBotPeaches/Apktool/master/scripts/linux/apktool -O apktool
+
+Download newest Apktool jar file from https://bitbucket.org/iBotPeaches/apktool/downloads/
+(e.g. wget https://bitbucket.org/iBotPeaches/apktool/downloads/apktool_2.3.4.jar)
+
+sudo mv apktool /usr/local/bin/
+sudo mv apktool_X.X.X.jar /usr/local/bin/apktool.jar (change X.X.X to corresponding version)
+
+chmod +x /usr/local/bin/apktool
+chmod +x /usr/local/bin/apktool.jar

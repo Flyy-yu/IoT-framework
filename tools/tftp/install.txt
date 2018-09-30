@@ -1,0 +1,14 @@
+# Found a python version tftp server/client
+pip install tftpy
+http://tftpy.sourceforge.net/sphinx/index.html
+
+
+import tftpy
+
+client = tftpy.TftpClient('tftp.digitaltorque.ca', 69)
+client.download('remote_filename', 'local_filename')
+
+import tftpy
+
+server = tftpy.TftpServer('/tftpboot')
+server.listen('0.0.0.0', 69)

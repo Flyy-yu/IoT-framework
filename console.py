@@ -7,7 +7,7 @@ import sys
 from time import sleep
 from nbstreamreader import NonBlockingStreamReader as NBSR
 from banner import banner
-
+from resource import color
 
 class MyPrompt(Cmd):
     prompt = 'IOT-Power> '
@@ -97,12 +97,7 @@ class MyPrompt(Cmd):
             return self.do_exit(input)
         else:
             subprocess.Popen(['/bin/bash', '-c', input], shell=False)
-            print("Default Bash Mode, press ? or type help to list commands")
-
-    _AVAILABLE_COLORS = ('blue', 'green', 'yellow', 'red', 'black')
-
-    def complete_color(self, text, line, begidx, endidx):
-        return [i for i in _AVAILABLE_COLORS if i.startswith(text)]
+            print("Default Bash Mode, press ? or type help to list commands\n\n")
 
     do_EOF = do_exit
     help_EOF = help_exit

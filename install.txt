@@ -11,11 +11,15 @@ apt-get install minicom
 apt-get install git python3-pip
 apt-get install libglib2.0-dev
 apt-get install npm
-
-
 apt-get install python-gtk2 python-cairo python-usb python-crypto python-serial python-dev libgcrypt-dev
+apt-get install git build-essential zlib1g-dev liblzma-dev python-magic
+apt-get install libssl-dev libevent-dev
+apt-get install dsniff
+apt-get install socat
 
 
+
+From Github
 
 git clone https://github.com/radare/radare2.git
 sys/install.sh
@@ -36,4 +40,11 @@ python3 rsf.py
 
 
 git clone https://github.com/craigz28/firmwalker.git
+
+
+
+MacOS:
+brew upgrade
+brew install sslsplit
+
 

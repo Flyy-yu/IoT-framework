@@ -106,4 +106,4 @@ venv.bak/
 .mypy_cache/
 
 .idea
-.idea/workspace.xml
+.DS_Store

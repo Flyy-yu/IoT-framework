@@ -6,9 +6,10 @@ import os
 import sys
 import platform
 from time import sleep
-from nbstreamreader import NonBlockingStreamReader as NBSR
 from resources import banner
 from colorama import Fore
+from resources.prettytable import PrettyTable
+
 
 class MyPrompt(Cmd):
     prompt = 'IOT-CLI> '
@@ -27,7 +28,8 @@ class MyPrompt(Cmd):
 
     def help_exit(self):
         print('exit the application. Shorthand: x q Ctrl-D.')
-    #Call an external program in python and retrieve the output/return code with subprocess
+    # Call an external program in python and retrieve the output/return code with subprocess
+
     def do_netstat(self, input):
         ## command to run - tcp only ##
         cmd = "netstat -p tcp -f inet"
@@ -69,8 +71,9 @@ class MyPrompt(Cmd):
     def help_ping(self):
         print("exec script.py")
     '''
+
     def do_new(self, input):
-        #Mac
+        # Mac
         if platform.system() == "Darwin":
             command = 'open -W -a Terminal.app'
             p = subprocess.Popen(command, shell=True)
@@ -82,30 +85,49 @@ class MyPrompt(Cmd):
                 p = subprocess.Popen(command, shell=True)
                 p.wait()
                 p.terminate()
-            except: 
+            except:
                 command = 'xterm'
                 p = subprocess.Popen(command, shell=True)
                 p.wait()
                 p.terminate()
-            
+
         elif platform.system() == "Windows":
             command = 'start /wait'
-        #Unknown OS: modification
-        else: 
+        # Unknown OS: modification
+        else:
             print("Unknown OS, You can modify the code in iot_CLI.py:92 or search keyword 'Unknown OS: modification' to modify")
-       
+
         # os.system("sudo chmod a+x new_terminal.sh")
         # subprocess.call("./new_terminal.sh")
 
     def help_new(self):
         print("create a new terminal...")
 
-    # a func used to test stuff 
-    def do_test(self): 
+    # a func used to test stuff
+    def do_test(self):
         pass
 
     def help_test(self):
-         print("a func used to test stuff...")
+        print("a func used to test stuff...")
+
+    def do_tools(self, input):
+        # WIP now just implementing basic functioning
+        t = PrettyTable(header_style='upper', padding_width=3)
+        t.field_names = ["Tools name", "Description"]
+        t.align["Tools name"] = "c"
+        t.align["Description"] = "l"
+        t.add_row(['apktools', Fore.LIGHTBLUE_EX + 'https://ibotpeaches.github.io/Apktool/' + Fore.RESET + '\
+                    \nA tool for reverse engineering 3rd party, closed, binary Android apps.'])
+        t.add_row(['ping', "The ping utility uses the ICMP protocol's mandatory ECHO_REQUEST datagram to\n\
+                    elicit an ICMP ECHO_RESPONSE from a host or gateway.  ECHO_REQUEST datagrams\n\
+                    (``pings'') have an IP and ICMP header, followed by a ``struct timeval'' and\n\
+                    then an arbitrary number of ``pad'' bytes used to fill out the packet.\n \
+                    usage example: ping 8.8.8.8"])
+        t.add_row([Fore.RED + 'WIP', 'More tools will be added' + Fore.RESET])
+        print(t)
+
+    def help_tools(self):
+        print("show included tools with descriptions...")
 
     def default(self, input):
 
@@ -113,7 +135,8 @@ class MyPrompt(Cmd):
             return self.do_exit(input)
         else:
             #"Run a shell command"
-            print(Fore.GREEN + "\nRunning shell command in default: {}\n".format(input) + Fore.RESET)
+            print(
+                Fore.GREEN + "\nRunning shell command in default: {}\n".format(input) + Fore.RESET)
             output = os.popen(input).read()
             print(output)
             self.last_output = output

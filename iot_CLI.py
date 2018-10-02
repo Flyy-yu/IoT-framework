@@ -4,6 +4,7 @@ import tempfile
 import subprocess
 import os
 import sys
+import platform
 from time import sleep
 from nbstreamreader import NonBlockingStreamReader as NBSR
 from resources import banner
@@ -69,20 +70,42 @@ class MyPrompt(Cmd):
         print("exec script.py")
     '''
     def do_new(self, input):
-        dirname = os.getcwd()
-        with tempfile.NamedTemporaryFile(suffix='.command', dir=dirname) as f:
-            f.write('#!/bin/sh\nls\n')
-            # subprocess.call(['sudo chmod u+x', f.name])
-            os.system("sudo chmod u+x {}".format(f.name))
-            command = 'open -W ' + f.name
+        #Mac
+        if platform.system() == "Darwin":
+            command = 'open -W -a Terminal.app'
             p = subprocess.Popen(command, shell=True)
             p.wait()
-        p.terminate()
+            p.terminate()
+        elif platform.system() == "Linux":
+            try:
+                command = 'gnome-terminal'
+                p = subprocess.Popen(command, shell=True)
+                p.wait()
+                p.terminate()
+            except: 
+                command = 'xterm'
+                p = subprocess.Popen(command, shell=True)
+                p.wait()
+                p.terminate()
+            
+        elif platform.system() == "Windows":
+            command = 'start /wait'
+        #Unknown OS: modification
+        else: 
+            print("Unknown OS, You can modify the code in iot_CLI.py:92 or search keyword 'Unknown OS: modification' to modify")
+       
         # os.system("sudo chmod a+x new_terminal.sh")
         # subprocess.call("./new_terminal.sh")
 
     def help_new(self):
         print("create a new terminal...")
+
+    # a func used to test stuff 
+    def do_test(self): 
+        pass
+
+    def help_test(self):
+         print("a func used to test stuff...")
 
     def default(self, input):
 

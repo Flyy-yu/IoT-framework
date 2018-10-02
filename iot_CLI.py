@@ -16,10 +16,10 @@ class MyPrompt(Cmd):
     intro = Fore.CYAN + "Welcome! Here is the version 0.0.1 of IOT Framework CLI, default mode is a shell interface\n\n\
     Core Commands:\n\
     ==============================================\n \
-    netstat\t\t execute netstat in CLI\n \
+    tools\t\t show all avaiable tools with descriptions in CLI\n \
     new\t\t create a new terminal\n \
-    clear\t\t clear the output\n\
-    quit or q\t\t exit the CLI\n\
+    clear\t\t clear the output\n \
+    quit or q\t\t exit the CLI\n\n \
     Type ? to list full commands" + Fore.RESET
 
     def do_exit(self, input):

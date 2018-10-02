@@ -6,36 +6,27 @@ import os
 import sys
 from time import sleep
 from nbstreamreader import NonBlockingStreamReader as NBSR
-from banner import banner
-from resource import color
+from resources import banner
+from colorama import Fore
 
 class MyPrompt(Cmd):
-    prompt = 'IOT-Power> '
-    intro = "Welcome! Type ? to list commands"
-
-    def do_hello(self, s):
-        if s == '':
-            name = input('Your name please: ')
-        else:
-            name = s
-        print ('Hello', name)
-
-    def help_hello(self):
-        print("interactive func")
+    prompt = 'IOT-CLI> '
+    intro = Fore.CYAN + "Welcome! Here is the version 0.0.1 of IOT Framework CLI, default mode is a shell interface\n\n\
+    Core Commands:\n\
+    ==============================================\n \
+    netstat\t\t execute netstat in CLI\n \
+    new\t\t create a new terminal\n \
+    clear\t\t clear the output\n\
+    quit or q\t\t exit the CLI\n\
+    Type ? to list full commands" + Fore.RESET
 
     def do_exit(self, input):
-        print("Bye")
+        print(Fore.YELLOW+"Bye"+Fore.RESET)
         return True
 
     def help_exit(self):
         print('exit the application. Shorthand: x q Ctrl-D.')
-
-    def do_add(self, input):
-        print("adding '{}'".format(input))
-
-    def help_add(self):
-        print("Add a new entry to the system.")
-
+    #Call an external program in python and retrieve the output/return code with subprocess
     def do_netstat(self, input):
         ## command to run - tcp only ##
         cmd = "netstat -p tcp -f inet"
@@ -54,10 +45,12 @@ class MyPrompt(Cmd):
 
     def help_netstat(self):
         print("execc netstat")
-
+    '''
+    #WIP
+    #Call an external program in python and retrieve the output/return code with subprocess
     def do_ping(self, input):
         # run the shell as a subprocess:
-        p = subprocess.Popen(['python', 'shell.py'],
+        p = subprocess.Popen(['python', 'resources/script.py'],
                              stdin=subprocess.PIPE, stdout=subprocess.PIPE, stderr=subprocess.PIPE, shell=False)
         # wrap p.stdout with a NonBlockingStreamReader object:
         nbsr = NBSR(p.stdout)
@@ -73,8 +66,8 @@ class MyPrompt(Cmd):
             print(output)
 
     def help_ping(self):
-        print("exec ping.py")
-
+        print("exec script.py")
+    '''
     def do_new(self, input):
         dirname = os.getcwd()
         with tempfile.NamedTemporaryFile(suffix='.command', dir=dirname) as f:
@@ -96,13 +89,18 @@ class MyPrompt(Cmd):
         if input == 'x' or input == 'q':
             return self.do_exit(input)
         else:
-            subprocess.Popen(['/bin/bash', '-c', input], shell=False)
-            print("Default Bash Mode, press ? or type help to list commands\n\n")
+            #"Run a shell command"
+            print(Fore.GREEN + "\nRunning shell command in default: {}\n".format(input) + Fore.RESET)
+            output = os.popen(input).read()
+            print(output)
+            self.last_output = output
 
     do_EOF = do_exit
     help_EOF = help_exit
 
 
 if __name__ == '__main__':
-    banner()
-    MyPrompt().cmdloop()
+    banner.the_banner()
+    cli = MyPrompt()
+    cli.doc_header = cli.intro
+    cli.cmdloop()

@@ -13,12 +13,24 @@ import textwrap
 from resources import banner
 from colorama import Fore
 from resources.prettytable import PrettyTable
+from tools.ping import ping_usage
 PROMPT = "IOT-CLI"
 
 
-class Tools_SubInterpreter(Cmd):
+class Ping_SubInterpreter(Cmd):
 
     def do_ping(self, args):
+        print(ping_usage.get_basic_command(args))
+
+    def do_back(self, args):
+        print("Back to Pre CLI...")
+        return True
+    def help_back(self):
+        print("Back to Pre CLI...")
+
+class Tftp_SubInterpreter(Cmd):
+
+    def do_tftp(self, args):
         pass
 
     def do_back(self, args):
@@ -55,9 +67,17 @@ class Tools_Interface(Cmd):
     def help_show(self):
         print("show included tools with descriptions...")
 
-    def do_use(self, args):
-        use_cli = Tools_SubInterpreter()
-        use_cli.prompt = PROMPT + ">>" + Fore.RED + " (tools_lib)>> " + Fore.RESET + "123 "+ args
+    def do_use(self, command):
+        if command.lower() == 'ping':
+            use_cli = Ping_SubInterpreter()
+            use_cli.prompt = PROMPT + ">>" + Fore.RED + " (tools_lib)>> " + command + ">> " + Fore.RESET 
+            use_cli.cmdloop()
+        elif command.lower() == 'tftp':
+            use_cli = Ping_SubInterpreter()
+            use_cli.prompt = PROMPT + ">>" + Fore.RED + " (tools_lib)>> " + command + ">> " + Fore.RESET 
+            use_cli.cmdloop()
+        else:
+            print(Fore.YELLOW+"Unknown Tools name, you can type 'show' to know all supported tools."+Fore.RESET)
 
     def do_back(self, args):
         print("Back to Main CLI...")
@@ -84,7 +104,7 @@ class MyPrompt(Cmd):
 
     def do_tools(self, input):
         sub_cmd = Tools_Interface()
-        sub_intro = Fore.LIGHTCYAN_EX + "Here is a sub module:\n\
+        sub_intro = Fore.LIGHTCYAN_EX + "\nHere is a tools_lib sub-module:\n\
         ==============================================\n \
         show\t\t show all avaiable tools with descriptions in CLI\n \
         use\t\t use a tool\n \
@@ -93,8 +113,8 @@ class MyPrompt(Cmd):
         And you can type help <command> to get help\n\
         ==============================================" + Fore.RESET
         sub_cmd.intro = sub_intro
-        sub_cmd.undoc_header = Fore.LIGHTYELLOW_EX + \
-        'Sub Modules \n==========================='+Fore.RESET
+        sub_cmd.doc_header = sub_cmd.intro + "\n\nSupported Commands\n=============================="
+        sub_cmd.undoc_header = Fore.LIGHTYELLOW_EX + '\nSub Modules \n==========================='+Fore.RESET
         sub_cmd.ruler = ''
         sub_cmd.cmdloop()
 

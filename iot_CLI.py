@@ -207,7 +207,29 @@ class MyPrompt(Cmd):
         print("a func used to test stuff...")
 
     def default(self, input):
-
+        # func used to capture stdout in real-time
+        def run_command_real_time(command):
+            try:
+                process = subprocess.Popen(shlex.split(command), stdout=subprocess.PIPE)
+                while True:
+                    output = process.stdout.readline()
+                    #output,error = process.communicate()
+                    if output == '' and process.poll() is not None:
+                        break
+                    if output:
+                        print output.strip()
+                rc = process.poll()
+                return rc
+            except OSError as e:
+                #print("OSError > ",e.errno)
+                print "OSError > ",e.strerror
+                #print("OSError > ",e.filename)
+                print(Fore.RED + "Note: Default Shell mode, please check you input" + Fore.RESET)
+            except ValueError:
+                pass
+            except:
+                print("Error > ", sys.exc_info()[0])
+            
         if input == 'x' or input == 'q':
             return self.do_exit(input)
         else:
@@ -216,23 +238,28 @@ class MyPrompt(Cmd):
                 Fore.GREEN + "\nRunning shell command in default: {}\n".format(input) + Fore.RESET)
             #output = os.popen(input).read()
             # print(output)
-            process = subprocess.Popen(
-                shlex.split(input), stdout=subprocess.PIPE)
-            while True:
-                output = process.stdout.readline()
-                if output == '' and process.poll() is not None:
-                    break
-                if output:
-                    print output.strip()
+            run_command_real_time(input)
+            '''
             try:
-                rc = process.poll()
-            except KeyboardInterrupt:
-                print("exiting...")
-            except OSError:
-                print("OS Error: wrong command")
+                process = subprocess.Popen(shlex.split(input), stdout=subprocess.PIPE)
+                output,error = process.communicate()
+                if output:
+                    print "ret> ",process.returncode
+                    print "OK> output ",output
+                if error:
+                    print "ret> ",process.returncode
+                    print "Error> error ",error.strip()
+                #print process.stdout.read()
+            except OSError as e:
+                print "OSError > ",e.errno
+                print "OSError > ",e.strerror
+                print "OSError > ",e.filename
+            except:
+                print "Error > ",sys.exc_info()[0]
+            '''
             # return rc
             #self.last_output = output
-
+    
     #do_EOF = do_exit
     #help_EOF = help_exit
 

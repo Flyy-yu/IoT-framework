@@ -1,17 +1,21 @@
 {
     "Tools": {
+        "hydra(demo avaiable)": {
+            "Description": "hydra",
+            "Example": "use hydra"
+        },
         "ping": {
             "Description": "The ping utility uses the ICMP protocol's mandatory ECHO_REQUEST datagram to elicit an ICMP ECHO_RESPONSE from a host or gateway. ",
-            "Example": "ping 192.168.1.1"
+            "Example": "use ping"
         },
 
         "sslsplit":{
             "Description": "SSLsplit is a tool for man-in-the-middle attacks against SSL/TLS encrypted network connections.",
-            "Example": "sslsplit -D -l connect.log -j . -S . -k ca.key -c ca.crt ssl 0.0.0.0 8443"
+            "Example": "use sslsplit"
         },
         "tftp":{
             "Description": "Trivial File Transfer Protocol (TFTP) is an Internet software utility for transferring files that is simpler to use than the File Transfer Protocol (FTP) but less capable.",
-            "Example": "tftp -g -r filename.txt 20.20.20.1"
+            "Example": "use tftp"
         }
         
     }

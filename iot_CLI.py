@@ -1,18 +1,76 @@
 # -*- coding:utf-8 -*-
 from cmd import Cmd
-import tempfile
+import json
+import signal
 import subprocess
+import time
 import os
 import sys
 import platform
-from time import sleep
+import atexit
+import shlex
+import textwrap
 from resources import banner
 from colorama import Fore
 from resources.prettytable import PrettyTable
+PROMPT = "IOT-CLI"
+
+
+class Tools_SubInterpreter(Cmd):
+
+    def do_ping(self, args):
+        pass
+
+    def do_back(self, args):
+        print("Back to Pre CLI...")
+        return True
+    def help_back(self):
+        print("Back to Pre CLI...")
+
+class Tools_Interface(Cmd):
+    prompt = PROMPT + ">>" + Fore.RED + " (tools_lib)> " + Fore.RESET
+
+    def do_show(self, input):
+        # WIP now just implementing basic functioning
+        t = PrettyTable(header_style='upper', padding_width=0)
+        t.field_names = ["Tools name", "Description", "Example"]
+        t.align["Tools name"] = "c"
+        t.align["Description"] = "l"
+        t.align["Example"] = "l"
+
+        with open('tools/tools.json') as f:
+            tool_info = json.load(f)
+            #print tool_info
+            for tool in tool_info['Tools'].keys():
+                name = textwrap.fill(str(tool), 20)
+                description = textwrap.fill(
+                    str(tool_info['Tools'][name]['Description']), 50)
+                example = textwrap.fill(
+                    str(tool_info['Tools'][name]['Example']), 30)
+                t.add_row([name, description, example])
+                padding = '{s:{c}^{n}}'.format(s='-', n=20, c='-')
+                t.add_row([padding, padding, padding])
+        print(t)
+
+    def help_show(self):
+        print("show included tools with descriptions...")
+
+    def do_use(self, args):
+        use_cli = Tools_SubInterpreter()
+        use_cli.prompt = PROMPT + ">>" + Fore.RED + " (tools_lib)>> " + Fore.RESET + "123 "+ args
+
+    def do_back(self, args):
+        print("Back to Main CLI...")
+        return True
+    def help_back(self):
+        print("Back to Main CLI...")
+
+    #do_EOF = do_back
 
 
 class MyPrompt(Cmd):
-    prompt = 'IOT-CLI> '
+    prompt = PROMPT + '> '
+
     intro = Fore.CYAN + "Welcome! Here is the version 0.0.1 of IOT Framework CLI, default mode is a shell interface\n\n\
     Core Commands:\n\
     ==============================================\n \
@@ -20,7 +78,25 @@ class MyPrompt(Cmd):
     new\t\t create a new terminal\n \
     clear\t\t clear the output\n \
     quit or q\t\t exit the CLI\n\n \
-    Type ? to list full commands" + Fore.RESET
+    Type ? to list full commands\n\
+    And you can type help <command> to get help\n\
+    ==============================================" + Fore.RESET
+
+    def do_tools(self, input):
+        sub_cmd = Tools_Interface()
+        sub_intro = Fore.LIGHTCYAN_EX + "Here is a sub module:\n\
+        ==============================================\n \
+        show\t\t show all avaiable tools with descriptions in CLI\n \
+        use\t\t use a tool\n \
+        back\t\t back to the main CLI\n\n \
+        Type ? to list full commands\n\
+        And you can type help <command> to get help\n\
+        ==============================================" + Fore.RESET
+        sub_cmd.intro = sub_intro
+        sub_cmd.undoc_header = Fore.LIGHTYELLOW_EX + \
+        'Sub Modules \n==========================='+Fore.RESET
+        sub_cmd.ruler = ''
+        sub_cmd.cmdloop()
 
     def do_exit(self, input):
         print(Fore.YELLOW+"Bye"+Fore.RESET)
@@ -75,7 +151,7 @@ class MyPrompt(Cmd):
     def do_new(self, input):
         # Mac
         if platform.system() == "Darwin":
-            command = 'open -W -a Terminal.app'
+            command = 'open -a Terminal "`pwd`"'
             p = subprocess.Popen(command, shell=True)
             p.wait()
             p.terminate()
@@ -110,25 +186,6 @@ class MyPrompt(Cmd):
     def help_test(self):
         print("a func used to test stuff...")
 
-    def do_tools(self, input):
-        # WIP now just implementing basic functioning
-        t = PrettyTable(header_style='upper', padding_width=3)
-        t.field_names = ["Tools name", "Description"]
-        t.align["Tools name"] = "c"
-        t.align["Description"] = "l"
-        t.add_row(['apktools', Fore.LIGHTBLUE_EX + 'https://ibotpeaches.github.io/Apktool/' + Fore.RESET + '\
-                    \nA tool for reverse engineering 3rd party, closed, binary Android apps.'])
-        t.add_row(['ping', "The ping utility uses the ICMP protocol's mandatory ECHO_REQUEST datagram to\n\
-                    elicit an ICMP ECHO_RESPONSE from a host or gateway.  ECHO_REQUEST datagrams\n\
-                    (``pings'') have an IP and ICMP header, followed by a ``struct timeval'' and\n\
-                    then an arbitrary number of ``pad'' bytes used to fill out the packet.\n \
-                    usage example: ping 8.8.8.8"])
-        t.add_row([Fore.RED + 'WIP', 'More tools will be added' + Fore.RESET])
-        print(t)
-
-    def help_tools(self):
-        print("show included tools with descriptions...")
-
     def default(self, input):
 
         if input == 'x' or input == 'q':
@@ -137,16 +194,54 @@ class MyPrompt(Cmd):
             #"Run a shell command"
             print(
                 Fore.GREEN + "\nRunning shell command in default: {}\n".format(input) + Fore.RESET)
-            output = os.popen(input).read()
-            print(output)
-            self.last_output = output
+            #output = os.popen(input).read()
+            # print(output)
+            process = subprocess.Popen(
+                shlex.split(input), stdout=subprocess.PIPE)
+            while True:
+                output = process.stdout.readline()
+                if output == '' and process.poll() is not None:
+                    break
+                if output:
+                    print output.strip()
+            try:
+                rc = process.poll()
+            except KeyboardInterrupt:
+                print("exiting...")
+            except OSError:
+                print("OS Error: wrong command")
+            # return rc
+            #self.last_output = output
 
-    do_EOF = do_exit
-    help_EOF = help_exit
+    #do_EOF = do_exit
+    #help_EOF = help_exit
+
+
+def exit_gracefully(signum, frame):
+    # restore the original signal handler as otherwise evil things will happen
+    # in raw_input when CTRL+C is pressed, and our signal handler is not re-entrant
+    signal.signal(signal.SIGINT, original_sigint)
+
+    try:
+        if raw_input("\nReally quit? (y/n)> ").lower().startswith('y'):
+            sys.exit(1)
+
+    except KeyboardInterrupt:
+        print("Ok ok, quitting")
+        sys.exit(1)
+
+    # restore the exit gracefully handler here
+    signal.signal(signal.SIGINT, exit_gracefully)
 
 
 if __name__ == '__main__':
     banner.the_banner()
+    original_sigint = signal.getsignal(signal.SIGINT)
+    signal.signal(signal.SIGINT, exit_gracefully)
     cli = MyPrompt()
-    cli.doc_header = cli.intro
+    cli.doc_header = cli.intro + "\n\nSupported Commands\n=============================="
+    #cli.misc_header = '123'
+    cli.undoc_header = Fore.LIGHTYELLOW_EX + \
+        'Sub Modules \n==========================='+Fore.RESET
+    cli.ruler = ''
     cli.cmdloop()

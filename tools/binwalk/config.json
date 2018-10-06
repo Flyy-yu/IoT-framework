@@ -1,0 +1,15 @@
+{
+  "name": "binwalk",
+  "intro": "Binwalk is a fast, easy to use tool for analyzing, reverse engineering, and extracting firmware images.",
+  "links": [
+    "https://github.com/ReFirmLabs/binwalk"
+  ],
+  "command": {
+    "imagefile": {
+      "default": "None",
+      "intro": "the absolute path of the firmware image",
+      "required": 1
+    }
+  },
+  "version": "x.x"
+}

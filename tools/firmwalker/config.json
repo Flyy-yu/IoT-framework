@@ -1,0 +1,15 @@
+{
+  "name": "firmwalker",
+  "intro": "A simple bash script for searching the extracted or mounted firmware file system. Enter the full path of the extracted framework root directory.",
+  "links": [
+    "https://github.com/craigz28/firmwalker"
+  ],
+  "command": {
+    "filepath": {
+      "default": "/home/iot/Desktop/cpio-root",
+      "intro": "The full path of the extracted framework root directory",
+      "required": 1
+    }
+  },
+  "version": "x.x"
+}

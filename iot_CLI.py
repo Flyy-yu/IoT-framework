@@ -377,7 +377,7 @@ class IOT_CLI(Cmd):
                     if output == '' and process.poll() is not None:
                         break
                     if output:
-                        print output.strip()
+                        print(output.strip())
                 rc = process.poll()
                 return rc
             except OSError as e:

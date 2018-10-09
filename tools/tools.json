@@ -1,12 +1,12 @@
 {
     "Tools": {
         "hydra(demo avaiable)": {
-            "Description": "hydra",
+            "Description": "Hydra is a very well-known and respected network log on cracker (password cracking tool)",
             "Example": "use hydra"
         },
-        "ping": {
-            "Description": "The ping utility uses the ICMP protocol's mandatory ECHO_REQUEST datagram to elicit an ICMP ECHO_RESPONSE from a host or gateway. ",
-            "Example": "use ping"
+        "arpspoof": {
+            "Description": "Man in the middle attack between client and server ",
+            "Example": "use arpspoof"
         },
 
         "sslsplit":{

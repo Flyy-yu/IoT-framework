@@ -176,11 +176,60 @@ class Hydra_SubInterpreter(Cmd):
     def help_back(self):
         print("Back to Pre CLI...")
 
+# third level
+class Arpspoof_SubInterpreter(Cmd):
+    # static object: json file directory
+    DIR = "tools/arpspoof/config.json"
+    intro = Fore.MAGENTA + "Interface: arpspoof\n\
+    ==============================================\n \
+    info\t\t show all descriptions in CLI\n \
+    options\t\t show all options and current setting\n \
+    set\t\t update config value\n \
+    back\t\t back to the previous CLI level\n\n \
+    Type ? to list full commands\n\
+    And you can type help <command> to get help\n\
+    ==============================================" + Fore.RESET
+    def do_run(self, args):
+        pass
 
-class Ping_SubInterpreter(Cmd):
+    def do_options(self, args):
+        options = Print_Utils()
+        table = options.print_options(self.DIR)
+        print(table)
+        print("\nFor example, You can type:\n   set ip 192.168.1.1 \n\n to update current setting.")
 
-    def do_ping(self, args):
-        print(ping_usage.get_basic_command(args))
+    def help_options(self):
+        print("show all options and arguments...")
+
+    def do_info(self, args):
+        # "tools/arpspoof/config.json"
+        info = Print_Utils()
+        table = info.print_info_table(self.DIR)
+        print(table)
+
+    def help_info(self):
+        print("show all brief info ...")
+    # update setting value from user's input
+
+    def do_set(self, args):
+        update = Update_Setting()
+        setting_args = shlex.split(args)
+        if len(setting_args) != 2:
+            print("check your args! Type 'options' to get help...")
+        else:
+            option_name = setting_args[0].lower()
+            setting_value = setting_args[1].lower()
+            if option_name == 'victimIp':
+                update.set_setting(self.DIR, option_name, setting_value)
+                update.refresh(self.DIR)
+            elif option_name == 'RouterIP':
+                update.set_setting(self.DIR, option_name, setting_value)
+                update.refresh(self.DIR)
+            elif option_name == 'myIP':
+                update.set_setting(self.DIR, option_name, setting_value)
+                update.refresh(self.DIR)
+            else:
+                print("Please check the option name. Type 'options' to get help... ")
 
     def do_back(self, args):
         print("Back to Pre CLI...")
@@ -189,11 +238,60 @@ class Ping_SubInterpreter(Cmd):
     def help_back(self):
         print("Back to Pre CLI...")
 
-
+# third level
 class Tftp_SubInterpreter(Cmd):
-
-    def do_tftp(self, args):
+    # static object: json file directory
+    DIR = "tools/tftp/config.json"
+    intro = Fore.MAGENTA + "Interface: tftp\n\
+    ==============================================\n \
+    info\t\t show all descriptions in CLI\n \
+    options\t\t show all options and current setting\n \
+    set\t\t update config value\n \
+    back\t\t back to the previous CLI level\n\n \
+    Type ? to list full commands\n\
+    And you can type help <command> to get help\n\
+    ==============================================" + Fore.RESET
+    def do_run(self, args):
         pass
+
+    def do_options(self, args):
+        options = Print_Utils()
+        table = options.print_options(self.DIR)
+        print(table)
+        print("\nFor example, You can type:\n   set ip 192.168.1.1 \n\n to update current setting.")
+
+    def help_options(self):
+        print("show all options and arguments...")
+
+    def do_info(self, args):
+        # "tools/arpspoof/config.json"
+        info = Print_Utils()
+        table = info.print_info_table(self.DIR)
+        print(table)
+
+    def help_info(self):
+        print("show all brief info ...")
+    # update setting value from user's input
+
+    def do_set(self, args):
+        update = Update_Setting()
+        setting_args = shlex.split(args)
+        if len(setting_args) != 2:
+            print("check your args! Type 'options' to get help...")
+        else:
+            option_name = setting_args[0].lower()
+            setting_value = setting_args[1].lower()
+            if option_name == 'ip':
+                update.set_setting(self.DIR, option_name, setting_value)
+                update.refresh(self.DIR)
+            elif option_name == 'protocol':
+                update.set_setting(self.DIR, option_name, setting_value)
+                update.refresh(self.DIR)
+            elif option_name == 'wordlist':
+                update.set_setting(self.DIR, option_name, setting_value)
+                update.refresh(self.DIR)
+            else:
+                print("Please check the option name. Type 'options' to get help... ")
 
     def do_back(self, args):
         print("Back to Pre CLI...")
@@ -233,14 +331,14 @@ class Tools_Interface(Cmd):
         print("show included tools with descriptions...")
 
     def do_use(self, command):
-        if command.lower() == 'ping':
-            use_cli = Ping_SubInterpreter()
+        if command.lower() == 'arpspoof':
+            use_cli = Arpspoof_SubInterpreter()
             use_cli.prompt = PROMPT + ">>" + Fore.RED + \
                 " (tools_lib)>> " + Fore.RESET + \
                 Back.RED + command + " >>>" + Back.RESET
             use_cli.cmdloop()
         elif command.lower() == 'tftp':
-            use_cli = Ping_SubInterpreter()
+            use_cli = Tftp_SubInterpreter()
             use_cli.prompt = PROMPT + ">>" + Fore.RED + \
                 " (tools_lib)>> " + Fore.RESET + \
                 Back.RED + command + " >>>" + Back.RESET

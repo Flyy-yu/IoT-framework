@@ -1,1 +1,0 @@
-imagefile,required,the absolute path of the firmware image

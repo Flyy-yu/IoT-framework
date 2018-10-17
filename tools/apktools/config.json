@@ -1,0 +1,20 @@
+{
+  "name": "apktools",
+  "intro": "A tool for reverse engineering 3rd party, closed, binary Android apps.",
+  "links": [
+    "https://ibotpeaches.github.io/Apktool/"
+  ],
+  "command": {
+    "method": {
+      "default": "build",
+      "intro": "build or decompile",
+      "required": 1
+    },
+    "apkname": {
+      "default": "/home/iot/Desktop/app-debug.apk",
+      "intro": "the absolute path of the apk",
+      "required": 1
+    }
+  },
+  "version": "x.x"
+}

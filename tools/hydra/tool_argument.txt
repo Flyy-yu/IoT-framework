@@ -1,6 +1,0 @@
-ip,required,set the target's ip address
-protocol,required,The target protocol, such as telnet, ftp, ssh and etc
-wordlist,required,the password wordlist file, such as "/usr/share/dirb/wordlists/short.txt" in Kail Linux
-url,optional,required for http,the url endpoint, such as /dvwa/login.php, /wp-admin.php
-form_parameters,optional,required for http, such as: username=^USER^&password=^PASS
-failed_login_msg,optional,required for http, such as 'the username or password is incorrect'

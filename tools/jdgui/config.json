@@ -1,0 +1,15 @@
+{
+  "name": "jdgui",
+  "intro": "The “Java Decompiler project” aims to develop tools in order to decompile and analyze Java 5 “byte code” and the later versions.",
+  "links": [
+    "http://jd.benow.ca/"
+  ],
+  "command": {
+    "apkname": {
+      "default": "example.apk",
+      "intro": "the Apk location",
+      "required": 1
+    }
+  },
+  "version": "x.x"
+}

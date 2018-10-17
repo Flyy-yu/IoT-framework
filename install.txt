@@ -16,7 +16,7 @@ apt-get install git build-essential zlib1g-dev liblzma-dev python-magic
 apt-get install libssl-dev libevent-dev
 apt-get install dsniff
 apt-get install socat
-
+apt-get install aircrack-ng
 
 
 From Github

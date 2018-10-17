@@ -1,2 +1,0 @@
-method,required,Decoding or build the application?
-apkname,required,The full path of the apk file for decode, or folder for build

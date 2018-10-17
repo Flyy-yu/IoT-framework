@@ -1,0 +1,15 @@
+{
+  "name": "ropgadget",
+  "intro": "This tool lets you search your gadgets on your binaries to facilitate your ROP exploitation.",
+  "links": [
+    "https://github.com/JonathanSalwan/ROPgadget"
+  ],
+  "binary": {
+    "Interface": {
+      "default": "libc.so.6",
+      "intro": "Name and path of the binary",
+      "required": 1
+    }
+  },
+  "version": "x.x"
+}

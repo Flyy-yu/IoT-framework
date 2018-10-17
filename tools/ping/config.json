@@ -1,0 +1,15 @@
+{
+  "name": "ping",
+  "intro": "ping. ",
+  "links": [
+    "google.com"
+  ],
+  "ip": {
+    "Interface": {
+      "default": "8.8.8.8",
+      "intro": "ip address",
+      "required": 1
+    }
+  },
+  "version": "x.x"
+}

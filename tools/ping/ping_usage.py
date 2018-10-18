@@ -4,7 +4,10 @@ from tools.Utility import *
 
 class Hydra(UtilityTool):
     def __init__(self, config_file):
-        super(Hydra, self).__init__(config_file)
+        if PY3:
+            super().__init__(config_file)
+        else:
+            super(Hydra, self).__init__(config_file)
 
     def get_basic_command(self,cmd):
         command = []

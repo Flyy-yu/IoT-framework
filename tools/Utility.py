@@ -1,7 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import json,os
+import json,os,sys
 from subprocess import Popen,PIPE,STDOUT,check_output, CalledProcessError
+if sys.version > '3':
+    PY3 = True
+else:
+    PY3 = False
 class UtilityTool(object):
     def __init__(self,config_file):
         with open(config_file,'r') as fp:

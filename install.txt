@@ -21,6 +21,8 @@ apt-get install aircrack-ng
 
 From Github
 
+git clone https://github.com/devtty
+
 git clone https://github.com/radare/radare2.git
 sys/install.sh
 

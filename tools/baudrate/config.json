@@ -1,0 +1,15 @@
+{
+  "name": "baudrate",
+  "intro": "baudrate.py, the script help you identify the baudrate",
+  "links": [
+    "https://github.com/devttys0/baudrate/blob/master/baudrate.py"
+  ],
+  "temp": {
+    "Interface": {
+      "default": "8.8.8.8",
+      "intro": "ip address",
+      "required": 1
+    }
+  },
+  "version": "x.x"
+}

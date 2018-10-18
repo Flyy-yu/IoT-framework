@@ -1,2 +1,3 @@
 https://github.com/riverloopsec/killerbee
 #TODO add this
+python /home/iot/Desktop/zigbee/killerbee/tools/zbwireshark -c1

@@ -1,0 +1,15 @@
+{
+  "name": "killerbee",
+  "intro": "This is KillerBee - Framework and Tools for Attacking ZigBee and IEEE 802.15.4 networks.",
+  "links": [
+    "http://www.willhackforsushi.com/presentations/toorcon11-wright.pdf"
+  ],
+  "command": {
+    "channel": {
+      "default": "22",
+      "intro": "Please enter the Zigbee channel",
+      "required": 1
+    }
+  },
+  "version": "x.x"
+}

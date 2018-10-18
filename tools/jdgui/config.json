@@ -6,8 +6,8 @@
   ],
   "command": {
     "apkname": {
-      "default": "example.apk",
-      "intro": "the Apk location",
+      "default": "/home/iot/Desktop/app-debug.apk",
+      "intro": "Path and name of the APK file",
       "required": 1
     }
   },

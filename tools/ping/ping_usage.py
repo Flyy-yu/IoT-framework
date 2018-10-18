@@ -4,7 +4,7 @@ from tools.Utility import *
 
 class Hydra(UtilityTool):
     def __init__(self, config_file):
-        super().__init__(config_file)
+        super(Hydra, self).__init__(config_file)
 
     def get_basic_command(self,cmd):
         command = []
@@ -15,7 +15,7 @@ class Hydra(UtilityTool):
 
 if __name__ == "__main__":
     print("Unit Test")
-    test_obj = Hydra("config.json")
+    test_obj = Hydra("/Users/zli/PycharmProjects/IoT-framework/tools/ping/config.json")
     print("Show Tool Intro:\n",str(test_obj.name),":",str(test_obj.intro))
 
     print("\nShow Command Intro")
@@ -36,7 +36,4 @@ if __name__ == "__main__":
     print("\nExecute Test 2 check_output")
     res = test_obj.run_command(2, run_cmd)
     print(res)
-    
-
-
 

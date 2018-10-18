@@ -1,39 +1,5 @@
 # -*- coding: utf-8 -*-
-import json,os
-class UtilityTool(object):
-    def __init__(self,config_file):
-        with open(config_file,'r') as fp:
-            self.config = self.load_config(fp)
-        self.name = self.config["name"]
-        self.intro = self.config["intro"]
-
-    def load_config(self,config_file):
-        config_file = json.load(config_file)
-        return config_file
-
-    # generate system command
-    def get_command_info(self):
-        command_dict = dict(self.config["command"])
-        return command_dict
-
-    def check_cmd(self,cmd):
-        for key,value in cmd.items():
-            if key in self.config["command"] and value in self.config["command"][key]:
-                for req_item, info in self.config["command"][key][value].items():
-                    if req_item not in cmd:
-                        return 'Error option "{}" needs "{}"'.format(value,req_item)
-        return 1
-
-    def get_basic_command(self,cmd_dict):
-        self.cmd_string = None
-        return self.cmd_string
-
-    # TODO execuate the command
-    def run_command(self):
-        return 1
-
-
-
+from tools.Utility import *
 
 class Hydra(UtilityTool):
     def __init__(self, config_file):
@@ -50,8 +16,6 @@ class Hydra(UtilityTool):
         else:
             command = 'hydra -L {} -P {} {} {}'.format(username_file, cmd["wordlist"], cmd["ip"], cmd["protocol"])
         return command
-
-
 
 if __name__ == "__main__":
     print("Unit Test")

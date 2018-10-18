@@ -4,8 +4,8 @@
   "links": [
     "google.com"
   ],
-  "ip": {
-    "Interface": {
+  "command": {
+    "ip": {
       "default": "8.8.8.8",
       "intro": "ip address",
       "required": 1

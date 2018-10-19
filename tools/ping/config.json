@@ -1,9 +1,4 @@
 {
-  "name": "ping",
-  "intro": "ping. ",
-  "links": [
-    "google.com"
-  ],
   "command": {
     "ip": {
       "default": "8.8.8.8",
@@ -11,5 +6,10 @@
       "required": 1
     }
   },
-  "version": "x.x"
+  "version": "x.x",
+  "intro": "ping. ",
+  "name": "ping",
+  "links": [
+    "google.com"
+  ]
 }

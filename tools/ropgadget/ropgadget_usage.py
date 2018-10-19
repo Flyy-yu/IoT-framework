@@ -1,9 +1,17 @@
-#ROPgadget --multibr --binary gets > rettt
+# ROPgadget --multibr --binary gets > rettt
 # cat rettt | grep "int 0x80 ; ret"
-def get_basic_command(binary):
-    command = 'ROPgadget --multibr --binary {} > gadget.txt'.format(binary)
-    return command
+
+from tools.Utility import *
+
+
+class Ropgadget(UtilityTool):
+    def __init__(self, config_file):
+        super(Ropgadget, self).__init__(config_file)
+
+    def get_basic_command(binary):
+        command = 'ROPgadget --multibr --binary {} > gadget.txt'.format(binary)
+        return command
 
 
 if __name__ == '__main__':
-    print (get_basic_command('libc.so.6'))
+    print(get_basic_command('libc.so.6'))

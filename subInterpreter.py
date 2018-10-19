@@ -192,7 +192,7 @@ class HydraSubInterpreter(SubInterpreter):
     def do_run(self, args):
         tool_module_name = 'tools.{}.{}'.format('hydra', 'hydra' + '_usage')
         current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Ping(self.json_file)
+        current_object = current_module.Hydra(self.json_file)
         raw_cmd = Print_Utils().print_options(self.json_file)[1]
         print(raw_cmd)
         run_cmd = current_object.get_basic_command(raw_cmd)
@@ -225,7 +225,7 @@ class ArpspoofSubInterpreter(SubInterpreter):
     def do_run(self, args):
         tool_module_name = 'tools.{}.{}'.format('arpspoof', 'arpspoof' + '_usage')
         current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Ping(self.json_file)
+        current_object = current_module.Arpspoof(self.json_file)
         raw_cmd = Print_Utils().print_options(self.json_file)[1]
         print(raw_cmd)
         run_cmd = current_object.get_basic_command(raw_cmd)
@@ -258,7 +258,7 @@ class TftpSubInterpreter(SubInterpreter):
     def do_run(self, args):
         tool_module_name = 'tools.{}.{}'.format('tftp', 'tftp' + '_usage')
         current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Ping(self.json_file)
+        current_object = current_module.Tftp(self.json_file)
         raw_cmd = Print_Utils().print_options(self.json_file)[1]
         print(raw_cmd)
         run_cmd = current_object.get_basic_command(raw_cmd)
@@ -287,7 +287,7 @@ class BinwalkSubInterpreter(SubInterpreter):
     def do_run(self, args):
         tool_module_name = 'tools.{}.{}'.format('binwalk', 'binwalk' + '_usage')
         current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Ping(self.json_file)
+        current_object = current_module.Binwalk(self.json_file)
         raw_cmd = Print_Utils().print_options(self.json_file)[1]
         print(raw_cmd)
         run_cmd = current_object.get_basic_command(raw_cmd)
@@ -313,7 +313,7 @@ class KismetSubInterpreter(SubInterpreter):
     def do_run(self, args):
         tool_module_name = 'tools.{}.{}'.format('kismet', 'kismet' + '_usage')
         current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Ping(self.json_file)
+        current_object = current_module.Kismet(self.json_file)
         raw_cmd = Print_Utils().print_options(self.json_file)[1]
         print(raw_cmd)
         run_cmd = current_object.get_basic_command(raw_cmd)
@@ -339,7 +339,7 @@ class RopgadgetSubInterpreter(SubInterpreter):
     def do_run(self, args):
         tool_module_name = 'tools.{}.{}'.format('ropgadget', 'ropgadget' + '_usage')
         current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Ping(self.json_file)
+        current_object = current_module.Ropgadget(self.json_file)
         raw_cmd = Print_Utils().print_options(self.json_file)[1]
         print(raw_cmd)
         run_cmd = current_object.get_basic_command(raw_cmd)
@@ -365,7 +365,7 @@ class ApktoolsSubInterpreter(SubInterpreter):
     def do_run(self, args):
         tool_module_name = 'tools.{}.{}'.format('apktools', 'apktools' + '_usage')
         current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Ping(self.json_file)
+        current_object = current_module.Apktools(self.json_file)
         raw_cmd = Print_Utils().print_options(self.json_file)[1]
         print(raw_cmd)
         run_cmd = current_object.get_basic_command(raw_cmd)
@@ -394,7 +394,7 @@ class KillerbeeSubInterpreter(SubInterpreter):
     def do_run(self, args):
         tool_module_name = 'tools.{}.{}'.format('killerbee', 'killerbee' + '_usage')
         current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Ping(self.json_file)
+        current_object = current_module.Killerbee(self.json_file)
         raw_cmd = Print_Utils().print_options(self.json_file)[1]
         print(raw_cmd)
         run_cmd = current_object.get_basic_command(raw_cmd)
@@ -420,7 +420,7 @@ class BaudrateSubInterpreter(SubInterpreter):
     def do_run(self, args):
         tool_module_name = 'tools.{}.{}'.format('baudrate', 'baudrate' + '_usage')
         current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Ping(self.json_file)
+        current_object = current_module.Baudrate(self.json_file)
         raw_cmd = Print_Utils().print_options(self.json_file)[1]
         print(raw_cmd)
         run_cmd = current_object.get_basic_command(raw_cmd)
@@ -452,7 +452,7 @@ class FirmwalkerSubInterpreter(SubInterpreter):
     def do_run(self, args):
         tool_module_name = 'tools.{}.{}'.format('firmwalker', 'firmwalker' + '_usage')
         current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Ping(self.json_file)
+        current_object = current_module.Firmwalker(self.json_file)
         raw_cmd = Print_Utils().print_options(self.json_file)[1]
         print(raw_cmd)
         run_cmd = current_object.get_basic_command(raw_cmd)
@@ -468,6 +468,32 @@ class FirmwalkerSubInterpreter(SubInterpreter):
             option_name = setting_args[0].lower()
             setting_value = setting_args[1].lower()
             if option_name == 'dir':
+                update.set_setting(self.json_file, option_name, setting_value)
+                update.refresh(self.json_file)
+            else:
+                print("Please check the option name. Type 'options' to get help... ")
+
+
+class JdguiSubInterpreter(SubInterpreter):
+    def do_run(self, args):
+        tool_module_name = 'tools.{}.{}'.format('jdgui', 'jdgui' + '_usage')
+        current_module = importlib.import_module(tool_module_name)
+        current_object = current_module.Jdgui(self.json_file)
+        raw_cmd = Print_Utils().print_options(self.json_file)[1]
+        print(raw_cmd)
+        run_cmd = current_object.get_basic_command(raw_cmd)
+        res = current_object.run_command(3, run_cmd)
+        print(res)
+
+    def do_set(self, args):
+        update = Update_Setting()
+        setting_args = shlex.split(args)
+        if len(setting_args) != 2:
+            print("check your args! Type 'options' to get help...")
+        else:
+            option_name = setting_args[0].lower()
+            setting_value = setting_args[1].lower()
+            if option_name == 'apkname':
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
             else:

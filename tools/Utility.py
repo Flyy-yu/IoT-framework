@@ -37,7 +37,8 @@ class UtilityTool(object):
     # TODO execuate the command
     def run_command(self, exec_function, cmd):
         if exec_function == 1:
-            out = Popen(cmd, stderr=STDOUT, stdout=PIPE)
+            # out = Popen(cmd, stderr=STDOUT, stdout=PIPE)
+            out = Popen(cmd)
             exec_res = out.communicate()[0], out.returncode
             return exec_res
         elif exec_function == 2:
@@ -47,6 +48,15 @@ class UtilityTool(object):
             except CalledProcessError as e:
                 exec_res = e.returncode, e.message
             return exec_res
-
+        elif exec_function == 3:
+            a = ' '
+            a = a.join(cmd)
+            a = a + ';exec bash'
+            exe_cmd = ['gnome-terminal', '-x', 'bash', '-c', a]
+            # exe_cmd.append(cmd)
+            print(exe_cmd)
+            out = Popen(exe_cmd)
+            exec_res = out.communicate()[0], out.returncode
+            return exec_res
         return 1
 

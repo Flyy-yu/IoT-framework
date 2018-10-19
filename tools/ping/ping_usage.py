@@ -29,9 +29,9 @@ if __name__ == "__main__":
     print("\nGenerate Command:")
     cmd = {}
     cmd["ip"] = "10.0.0.1"
-
     run_cmd = test_obj.get_basic_command(cmd)
     print(run_cmd)
+
     print("\nExecute Test 1 Popen")
     res = test_obj.run_command(1, run_cmd)
     print(res)
@@ -39,4 +39,9 @@ if __name__ == "__main__":
     print("\nExecute Test 2 check_output")
     res = test_obj.run_command(2, run_cmd)
     print(res)
+
+    print("\nExecute Test 3 new window")
+    res = test_obj.run_command(3, run_cmd)
+    print(res)
+
 

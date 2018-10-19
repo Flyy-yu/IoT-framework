@@ -7,10 +7,7 @@ from Utility import *
 
 class Ping(UtilityTool):
     def __init__(self, config_file):
-        if PY3:
-            super().__init__(config_file)
-        else:
-            super(Ping, self).__init__(config_file)
+        super(Ping, self).__init__(config_file)
 
     def get_basic_command(self, cmd):
         print(cmd)

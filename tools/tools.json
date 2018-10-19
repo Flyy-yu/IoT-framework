@@ -37,7 +37,7 @@
       "Example": "use kismet"
     },
     "jdgui": {
-      "Description": "JD-GUI is a standalone graphical utility that displays Java source codes of “.class” files.",
+      "Description": "JD-GUI is a standalone graphical utility that displays Java source codes of .class files.",
       "Example": "use jdgui"
     },
     "firmwalker": {

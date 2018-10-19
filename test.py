@@ -24,3 +24,7 @@ if __name__ == "__main__":
     print("\nExecute Test 2 check_output")
     res = test_obj.run_command(2, run_cmd)
     print(res)
+    
+    print("\nExecute Test 3 new window")
+    res = test_obj.run_command(3, run_cmd)
+    print(res)

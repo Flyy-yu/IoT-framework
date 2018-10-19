@@ -5,7 +5,7 @@
     "https://github.com/craigz28/firmwalker"
   ],
   "command": {
-    "filepath": {
+    "dir": {
       "default": "/home/iot/Desktop/cpio-root",
       "intro": "The full path of the extracted framework root directory",
       "required": 1

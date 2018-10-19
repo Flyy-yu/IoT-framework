@@ -47,8 +47,20 @@ class Tools_Interface(Cmd):
             use_cli = TftpSubInterpreter(json_dir)
         elif command.lower() == 'hydra':
             use_cli = HydraSubInterpreter(json_dir)
+        elif command.lower() == 'killerbee':
+            use_cli = KillerbeeSubInterpreter(json_dir)
+        elif command.lower() == 'apktools':
+            use_cli = ApktoolsSubInterpreter(json_dir)
+        elif command.lower() == 'ropgadget':
+            use_cli = RopgadgetSubInterpreter(json_dir)
+        elif command.lower() == 'kismet':
+            use_cli = KismetSubInterpreter(json_dir)
         elif command.lower() == 'ping':
             use_cli = PingSubInterpreter(json_dir)
+        elif command.lower() == 'firmwalker':
+            use_cli = FirmwalkerSubInterpreter(json_dir)
+        elif command.lower() == 'baudrate':
+            use_cli = BaudrateSubInterpreter(json_dir)
         else:
             print(
                 Fore.YELLOW + "Unknown Tools name, you can type 'show' to know all supported tools." + Fore.RESET)

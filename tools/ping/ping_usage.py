@@ -18,9 +18,6 @@ class Ping(UtilityTool):
         command.append(cmd['ip'])
         return command
 
-    def print1(self):
-        print (123)
-
 
 if __name__ == "__main__":
     print("Unit Test")
@@ -37,7 +34,7 @@ if __name__ == "__main__":
     cmd["ip"] = "10.0.0.1"
     run_cmd = test_obj.get_basic_command(cmd)
     print(run_cmd)
-    
+
     print("\nExecute Test 3 new window")
     res = test_obj.run_command(3, run_cmd)
     print(res)

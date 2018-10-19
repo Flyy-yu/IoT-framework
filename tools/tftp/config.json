@@ -1,0 +1,20 @@
+{
+  "name": "tftp",
+  "intro": "Trivial File Transfer Protocol (TFTP) is an Internet software utility fortransferring files.",
+  "links": [
+    "http://lists.busybox.net/pipermail/busybox/2003-February/007972.html"
+  ],
+  "command": {
+    "method": {
+      "default": "get",
+      "intro": "Get or put file",
+      "required": 1
+    },
+    "filename": {
+      "default": "/home/iot/Desktop/example.txt",
+      "intro": "the file to transfer",
+      "required": 1
+    }
+  },
+  "version": "x.x"
+}

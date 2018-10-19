@@ -4,8 +4,8 @@
   "links": [
     "https://github.com/JonathanSalwan/ROPgadget"
   ],
-  "binary": {
-    "Interface": {
+  "command": {
+    "binary": {
       "default": "libc.so.6",
       "intro": "Name and path of the binary",
       "required": 1

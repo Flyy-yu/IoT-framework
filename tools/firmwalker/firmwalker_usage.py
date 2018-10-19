@@ -1,8 +1,8 @@
 #firmwalker.sh ../cpio-root/ a.txt
 
 
-def get_basic_command(path):
-    command = 'cd /home/iot/Desktop/firmwalker && ./firmwalker.sh {} ~/Desktop/result.txt'.format(path)
+def get_basic_command(dir):
+    command = 'cd /home/iot/Desktop/firmwalker && ./firmwalker.sh {} ~/Desktop/result.txt'.format(dir)
     return command
 
 

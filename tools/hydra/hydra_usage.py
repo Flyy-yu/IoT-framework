@@ -17,9 +17,6 @@ class Hydra(UtilityTool):
             command = 'hydra -L {} -P {} {} {}'.format(username_file, cmd["wordlist"], cmd["ip"], cmd["protocol"])
         return command
 
-    def print1(self):
-        print '123'
-
 
 if __name__ == "__main__":
     print("Unit Test")

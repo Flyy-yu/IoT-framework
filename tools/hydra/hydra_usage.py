@@ -1,5 +1,10 @@
 # -*- coding: utf-8 -*-
-from tools.Utility import *
+
+
+import sys
+sys.path.append('..')
+from Utility import *
+
 
 class Hydra(UtilityTool):
     def __init__(self, config_file):

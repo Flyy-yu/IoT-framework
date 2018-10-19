@@ -2,8 +2,9 @@
 
 # python /home/iot/Desktop/zigbee/killerbee/tools/zbwireshark -c1
 
-from tools.Utility import *
-
+import sys
+sys.path.append('..')
+from Utility import *
 
 class Killerbee(UtilityTool):
     def __init__(self, config_file):

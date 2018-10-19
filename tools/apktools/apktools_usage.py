@@ -1,7 +1,9 @@
 # apktools d apkname
 # apktools b foldername
 
-from tools.Utility import *
+import sys
+sys.path.append('..')
+from Utility import *
 
 class Apktools(UtilityTool):
     def __init__(self, config_file):

@@ -1,10 +1,8 @@
 # tftp -g -r filename.txt 20.20.20.1
 
-
-
-
-from tools.Utility import *
-
+import sys
+sys.path.append('..')
+from Utility import *
 
 class Tftp(UtilityTool):
     def __init__(self, config_file):
@@ -19,7 +17,6 @@ class Tftp(UtilityTool):
         if method.lower() == 'put':
             command = 'tftp {} {} {} {}'.format('-p', '-l', filename, ip)
             return command
-
 
 if __name__ == '__main__':
     print (get_basic_command('Get', '~/file/txt', '8.8.8.8'))

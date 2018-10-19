@@ -2,8 +2,9 @@
 # sudo iwconfig wlx9cefd5fd8f86 mode Monitor
 # sudo kismet -c wlx9cefd5fd8f86
 
-from tools.Utility import *
-
+import sys
+sys.path.append('..')
+from Utility import *
 
 class Kismet(UtilityTool):
     def __init__(self, config_file):

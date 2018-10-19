@@ -2,8 +2,9 @@
 # dex2jar classes.dex
 import os
 
-from tools.Utility import *
-
+import sys
+sys.path.append('..')
+from Utility import *
 
 class Jdgui(UtilityTool):
     def __init__(self, config_file):

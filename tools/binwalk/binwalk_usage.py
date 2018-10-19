@@ -1,8 +1,9 @@
 # binwalk -Mre filename
 #
 
-from tools.Utility import *
-
+import sys
+sys.path.append('..')
+from Utility import *
 
 class Binwalk(UtilityTool):
     def __init__(self, config_file):

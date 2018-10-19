@@ -1,8 +1,7 @@
 # the basic command: ping 8.8.8.8
 
-import sys
-sys.path.append('..')
-from Utility import *
+from tools.Utility import *
+
 
 class Baudrate(UtilityTool):
     def __init__(self, config_file):

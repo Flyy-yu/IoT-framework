@@ -1,8 +1,6 @@
 # tftp -g -r filename.txt 20.20.20.1
 
-import sys
-sys.path.append('..')
-from Utility import *
+from tools.Utility import *
 
 class Tftp(UtilityTool):
     def __init__(self, config_file):

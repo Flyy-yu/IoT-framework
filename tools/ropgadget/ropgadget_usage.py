@@ -1,9 +1,8 @@
 # ROPgadget --multibr --binary gets > rettt
 # cat rettt | grep "int 0x80 ; ret"
 
-import sys
-sys.path.append('..')
-from Utility import *
+from tools.Utility import *
+
 
 class Ropgadget(UtilityTool):
     def __init__(self, config_file):

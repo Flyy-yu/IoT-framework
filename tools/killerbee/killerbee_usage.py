@@ -2,9 +2,8 @@
 
 # python /home/iot/Desktop/zigbee/killerbee/tools/zbwireshark -c1
 
-import sys
-sys.path.append('..')
-from Utility import *
+from tools.Utility import *
+
 
 class Killerbee(UtilityTool):
     def __init__(self, config_file):
@@ -13,7 +12,6 @@ class Killerbee(UtilityTool):
     def get_basic_command(channel):
         command = 'sudo python /home/iot/Desktop/zigbee/killerbee/tools/zbwireshark -c {}'.format(channel)
         return command
-
 
     def get_channel(self):
         command: 'sudo python /home/iot/Desktop/zigbee/killerbee/tools/zbstumbler'

@@ -1,8 +1,5 @@
 # the basic command: ping 8.8.8.8
-
-import sys
-sys.path.append('..')
-from Utility import *
+from tools.Utility import *
 
 
 class Ping(UtilityTool):

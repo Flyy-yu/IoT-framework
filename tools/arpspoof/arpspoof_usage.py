@@ -2,9 +2,8 @@
 # sudo arpspoof -i 10.10.10.101 -t 10.10.10.254 10.10.10.100
 #
 
-import sys
-sys.path.append('..')
-from Utility import *
+from tools.Utility import *
+
 
 class Arpspoof(UtilityTool):
     def __init__(self, config_file):

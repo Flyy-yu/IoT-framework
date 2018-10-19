@@ -1,9 +1,8 @@
 # apktools d apkname
 # apktools b foldername
 
-import sys
-sys.path.append('..')
-from Utility import *
+from tools.Utility import *
+
 
 class Apktools(UtilityTool):
     def __init__(self, config_file):
@@ -20,4 +19,4 @@ class Apktools(UtilityTool):
 
 
 if __name__ == '__main__':
-    print (get_basic_command('build','/home/iot/Desktop/app-debug.apk'))
+    print(get_basic_command('build', '/home/iot/Desktop/app-debug.apk'))

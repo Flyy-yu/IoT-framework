@@ -1,9 +1,7 @@
 # -*- coding: utf-8 -*-
 
-
-import sys
-sys.path.append('..')
-from Utility import *
+import os
+from tools.Utility import *
 
 
 class Hydra(UtilityTool):
@@ -26,12 +24,12 @@ class Hydra(UtilityTool):
 if __name__ == "__main__":
     print("Unit Test")
     test_obj = Hydra("config.json")
-    print("Show Tool Intro:\n",str(test_obj.name),":",str(test_obj.intro))
+    print("Show Tool Intro:\n", str(test_obj.name), ":", str(test_obj.intro))
 
     print("\nShow Command Intro")
     for key, value in test_obj.get_command_info().items():
-        print(str(key)+":"+str(value["intro"]))
-    #print(get_basic_command('192.168.1.1', 'telnet', '/usr/share/wordlists/rockyou.txt'))
+        print(str(key) + ":" + str(value["intro"]))
+    # print(get_basic_command('192.168.1.1', 'telnet', '/usr/share/wordlists/rockyou.txt'))
 
     print("\nGenerate Command:")
     cmd = {}
@@ -54,9 +52,3 @@ if __name__ == "__main__":
     cmd["failed_login_msg"] = "incorrect"
     print(test_obj.check_cmd(cmd))
     print(test_obj.get_basic_command(cmd))
-
-
-
-
-
-

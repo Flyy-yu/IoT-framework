@@ -1,7 +1,7 @@
 from tools.ping.ping_usage import *
 
 if __name__ == "__main__":
-    test_obj = Hydra("/Users/zli/PycharmProjects/IoT-framework/tools/ping/config.json")
+    test_obj = Ping("/Users/zli/PycharmProjects/IoT-framework/tools/ping/config.json")
     # print("Unit Test")
     # test_obj = Hydra("config.json")
     # print("Show Tool Intro:\n",str(test_obj.name),":",str(test_obj.intro))
@@ -18,11 +18,11 @@ if __name__ == "__main__":
     run_cmd = test_obj.get_basic_command(cmd)
     print(run_cmd)
     print("\nExecute Test 1 Popen")
-    res = test_obj.run_command(1, run_cmd)
+    res = test_obj.run_command(3, run_cmd)
     print(res)
 
     print("\nExecute Test 2 check_output")
-    res = test_obj.run_command(2, run_cmd)
+    res = test_obj.run_command(3, run_cmd)
     print(res)
     
     print("\nExecute Test 3 new window")

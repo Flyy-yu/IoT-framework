@@ -10,9 +10,9 @@ class Jdgui(UtilityTool):
     def __init__(self, config_file):
         super(Jdgui, self).__init__(config_file)
 
-    def get_basic_command(apkname):
-        path = apkname[:apkname.rfind('/')]
-        command = 'unzip {}'.format(apkname)
+    def get_basic_command(self, cmd):
+        path = cmd['apkname'][:cmd['apkname'].rfind('/')]
+        command = 'unzip {}'.format(cmd['apkname'])
         return command + ' && dex2jar {}/classes.dex'.format(path)
 
 

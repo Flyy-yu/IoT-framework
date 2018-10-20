@@ -8,8 +8,8 @@ class Ropgadget(UtilityTool):
     def __init__(self, config_file):
         super(Ropgadget, self).__init__(config_file)
 
-    def get_basic_command(binary):
-        command = 'ROPgadget --multibr --binary {} > gadget.txt'.format(binary)
+    def get_basic_command(self, cmd):
+        command = 'ROPgadget --multibr --binary {} > gadget.txt'.format(cmd['binary'])
         return command
 
 

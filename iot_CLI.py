@@ -61,6 +61,8 @@ class Tools_Interface(Cmd):
             use_cli = FirmwalkerSubInterpreter(json_dir)
         elif command.lower() == 'baudrate':
             use_cli = BaudrateSubInterpreter(json_dir)
+        elif command.lower() == 'binwalk':
+            use_cli = BinwalkSubInterpreter(json_dir)
         else:
             print(
                 Fore.YELLOW + "Unknown Tools name, you can type 'show' to know all supported tools." + Fore.RESET)

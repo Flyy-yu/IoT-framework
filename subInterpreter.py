@@ -289,6 +289,7 @@ class BinwalkSubInterpreter(SubInterpreter):
         current_module = importlib.import_module(tool_module_name)
         current_object = current_module.Binwalk(self.json_file)
         raw_cmd = Print_Utils().print_options(self.json_file)[1]
+        print "this is the raw command:"
         print(raw_cmd)
         run_cmd = current_object.get_basic_command(raw_cmd)
         res = current_object.run_command(3, run_cmd)

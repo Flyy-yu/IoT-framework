@@ -8,15 +8,15 @@ class Apktools(UtilityTool):
     def __init__(self, config_file):
         super(Apktools, self).__init__(config_file)
 
-    def get_basic_command(method, apkname):
-        path = apkname[:apkname.rfind('/')] + '/'
+    def get_basic_command(self, cmd):
+        path = cmd['apkname'][:cmd['apkname'].rfind('/')] + '/'
 
-        if method.lower() == 'build':
-            command = 'apktools b {}'.format(apkname)
-        if method.lower() == 'decoding':
-            command = 'apktools d {}'.format(apkname)
+        if cmd['method'].lower() == 'build':
+            command = 'apktools b {}'.format(cmd['apkname'])
+        if cmd['method'].lower() == 'decoding':
+            command = 'apktools d {}'.format(cmd['apkname'])
         return command
 
 
 if __name__ == '__main__':
-    print(get_basic_command('build', '/home/iot/Desktop/app-debug.apk'))
+    print 1

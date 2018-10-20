@@ -6,7 +6,7 @@
   ],
   "command": {
     "method": {
-      "default": "build",
+      "default": "decompile",
       "intro": "build or decompile",
       "required": 1
     },

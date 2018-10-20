@@ -5,7 +5,7 @@
     "https://en.wikipedia.org/wiki/Kismet_(software)"
   ],
   "command": {
-    "Interface": {
+    "interface": {
       "default": "wlx9cefd5fd8f86",
       "intro": "the Wireless interface",
       "required": 1

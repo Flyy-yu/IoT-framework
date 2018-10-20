@@ -7,7 +7,7 @@
       "required": 1
     },
     "ip": {
-      "default": "8.8.8.8",
+      "default": "192.168.1.1",
       "intro": "target's ip address",
       "required": 1
     },

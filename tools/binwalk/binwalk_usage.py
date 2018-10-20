@@ -8,8 +8,8 @@ class Binwalk(UtilityTool):
     def __init__(self, config_file):
         super(Binwalk, self).__init__(config_file)
 
-    def get_basic_command(imagefile):
-        command = 'binwalk -Mre {}'.format(imagefile)
+    def get_basic_command(self, cmd):
+        command = 'binwalk -Mre {}'.format(cmd['imagefile'])
         return command
 
 

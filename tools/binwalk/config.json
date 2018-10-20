@@ -6,7 +6,7 @@
   ],
   "command": {
     "imagefile": {
-      "default": "None",
+      "default": "/home/iot/Desktop/AL3-R024-64MB",
       "intro": "the absolute path of the firmware image",
       "required": 1
     }

@@ -9,12 +9,12 @@ class Killerbee(UtilityTool):
     def __init__(self, config_file):
         super(Killerbee, self).__init__(config_file)
 
-    def get_basic_command(channel):
-        command = 'sudo python /home/iot/Desktop/zigbee/killerbee/tools/zbwireshark -c {}'.format(channel)
+    def get_basic_command(self, cmd):
+        command = 'sudo python /home/iot/Desktop/zigbee/killerbee/tools/zbwireshark -c {}'.format(cmd['channel'])
         return command
 
     def get_channel(self):
-        command: 'sudo python /home/iot/Desktop/zigbee/killerbee/tools/zbstumbler'
+        command = 'sudo python /home/iot/Desktop/zigbee/killerbee/tools/zbstumbler'
         return command
 
 

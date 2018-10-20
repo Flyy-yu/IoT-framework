@@ -7,7 +7,7 @@ class Baudrate(UtilityTool):
     def __init__(self, config_file):
         super(Baudrate, self).__init__(config_file)
 
-    def get_basic_command(self):
+    def get_basic_command(self, cmd):
         command = 'python /home/iot/tools/baudrate/baudrate.py'
         return command
 

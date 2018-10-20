@@ -51,15 +51,15 @@ class UtilityTool(object):
             return exec_res
         elif exec_function == 3:
             if isinstance(cmd,list):
-                a = ' '
+                pre_cmd = ' '
             else:
-                a = ''
-            a = a.join(cmd)
-            a = a + ';exec bash'
-            exe_cmd = ['gnome-terminal', '-x', 'bash', '-c', a]
+                pre_cmd = ''
+            pre_cmd = pre_cmd.join(cmd)
+            pre_cmd = pre_cmd + ';exec bash'
+            exe_cmd = ['gnome-terminal', '-x', 'bash', '-c', pre_cmd]
             # exe_cmd.append(cmd)
-            print(exe_cmd)
-            print 'above'
+            # print(exe_cmd)
+            # print 'above'
             out = Popen(exe_cmd)
             exec_res = out.communicate()[0], out.returncode
             return exec_res

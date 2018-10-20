@@ -9,7 +9,7 @@ class Binwalk(UtilityTool):
         super(Binwalk, self).__init__(config_file)
 
     def get_basic_command(self, cmd):
-        command = 'binwalk -Mre {}'.format(cmd['imagefile'])
+        command = 'binwalk -Mre --directory=/home/iot/Desktop {}'.format(cmd['imagefile'])
         return command
 
 

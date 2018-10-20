@@ -50,12 +50,13 @@ class UtilityTool(object):
                 exec_res = e.returncode, e.message
             return exec_res
         elif exec_function == 3:
-            a = ' '
+            a = ''
             a = a.join(cmd)
             a = a + ';exec bash'
             exe_cmd = ['gnome-terminal', '-x', 'bash', '-c', a]
             # exe_cmd.append(cmd)
             print(exe_cmd)
+            print 'above'
             out = Popen(exe_cmd)
             exec_res = out.communicate()[0], out.returncode
             return exec_res

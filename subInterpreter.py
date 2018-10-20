@@ -177,7 +177,7 @@ class PingSubInterpreter(SubInterpreter):
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
-            setting_value = setting_args[1].lower()
+            setting_value = setting_args[1]
             if option_name == 'ip':
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
@@ -206,7 +206,7 @@ class HydraSubInterpreter(SubInterpreter):
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
-            setting_value = setting_args[1].lower()
+            setting_value = setting_args[1]
             if option_name == 'ip':
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
@@ -239,7 +239,7 @@ class ArpspoofSubInterpreter(SubInterpreter):
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
-            setting_value = setting_args[1].lower()
+            setting_value = setting_args[1]
             if option_name == 'victimIp':
                 update.set_setting(self.json, option_name, setting_value)
                 update.refresh(self.json)
@@ -272,7 +272,7 @@ class TftpSubInterpreter(SubInterpreter):
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
-            setting_value = setting_args[1].lower()
+            setting_value = setting_args[1]
             if option_name == 'method':
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
@@ -301,7 +301,7 @@ class BinwalkSubInterpreter(SubInterpreter):
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
-            setting_value = setting_args[1].lower()
+            setting_value = setting_args[1]
             if option_name == 'imagefile':
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
@@ -327,7 +327,7 @@ class KismetSubInterpreter(SubInterpreter):
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
-            setting_value = setting_args[1].lower()
+            setting_value = setting_args[1]
             if option_name == 'interface':
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
@@ -353,7 +353,7 @@ class RopgadgetSubInterpreter(SubInterpreter):
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
-            setting_value = setting_args[1].lower()
+            setting_value = setting_args[1]
             if option_name == 'binary':
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
@@ -379,7 +379,7 @@ class ApktoolsSubInterpreter(SubInterpreter):
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
-            setting_value = setting_args[1].lower()
+            setting_value = setting_args[1]
             if option_name == 'method':
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
@@ -408,7 +408,7 @@ class KillerbeeSubInterpreter(SubInterpreter):
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
-            setting_value = setting_args[1].lower()
+            setting_value = setting_args[1]
             if option_name == 'channel':
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
@@ -434,7 +434,7 @@ class BaudrateSubInterpreter(SubInterpreter):
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
-            setting_value = setting_args[1].lower()
+            setting_value = setting_args[1]
             if option_name == 'ip':
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
@@ -466,7 +466,7 @@ class FirmwalkerSubInterpreter(SubInterpreter):
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
-            setting_value = setting_args[1].lower()
+            setting_value = setting_args[1]
             if option_name == 'dir':
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
@@ -492,7 +492,7 @@ class JdguiSubInterpreter(SubInterpreter):
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
-            setting_value = setting_args[1].lower()
+            setting_value = setting_args[1]
             if option_name == 'apkname':
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)

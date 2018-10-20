@@ -17,7 +17,7 @@ class Ping(UtilityTool):
 
 if __name__ == "__main__":
     print("Unit Test")
-    test_obj = Ping("/Users/fly/Desktop/capstone/IoT-framework/tools/ping/config.json")
+    test_obj = Ping("./tools/ping/config.json")
     print("Show Tool Intro:\n", str(test_obj.name), ":", str(test_obj.intro))
 
     print("\nShow Command Intro")

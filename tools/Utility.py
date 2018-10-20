@@ -63,5 +63,16 @@ class UtilityTool(object):
             out = Popen(exe_cmd)
             exec_res = out.communicate()[0], out.returncode
             return exec_res
+        elif exec_function == 4:
+            if isinstance(cmd, list):
+                pre_cmd = ' '
+            else:
+                pre_cmd = ''
+            pre_cmd = pre_cmd.join(cmd)
+            pre_cmd = pre_cmd + ';read -n1 -rsp "press any key to confinue ..."'
+            exe_cmd = ['gnome-terminal', '-x', 'bash', '-c', pre_cmd]
+            out = Popen(exe_cmd)
+            exec_res = out.communicate()[0], out.returncode
+            return exec_res
         return 1
 

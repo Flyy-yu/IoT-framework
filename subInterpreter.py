@@ -16,7 +16,6 @@ import importlib
 
 PROMPT = "IOT-CLI"
 
-
 class UtilityTool(object):
     def __init__(self, config_file):
         with open(config_file, 'r') as fp:

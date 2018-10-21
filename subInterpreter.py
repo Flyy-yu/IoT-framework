@@ -114,19 +114,23 @@ class Update_Setting(object):
 
 class SubInterpreter(Cmd):
     # static object: json file directory
-
+    
     def __init__(self, json_file):
         self.json_file = json_file
         Cmd.__init__(self)
+        Cmd.doc_header = "\n\nSupported Commands\n=============================="
+        Cmd.undoc_header = Fore.LIGHTYELLOW_EX + \
+                       'Execute Module \n===========================' + Fore.RESET
+        Cmd.ruler = ''
 
-    intro = Fore.MAGENTA + "Interface: Hydra\n\
+    intro = Fore.MAGENTA + "Tool Interface: \n\
         ==============================================\n \
         info\t\t show all descriptions in CLI\n \
         options\t\t show all options and current setting\n \
         set\t\t update config value\n \
-        back\t\t back to the previous CLI level\n\n \
-        Type ? to list full commands\n\
-        And you can type help <command> to get help\n\
+        back\t\t back to the previous CLI level\n\n " + Fore.RESET + \
+        Fore.RED + "\t run\t\t generate the command based on user's setting and run the command in a new terminal\n\n" + Fore.RESET +\
+        Fore.MAGENTA+ "\n \Type ? to list full commands\n And you can type help <command> to get help\n\
         ==============================================" + Fore.RESET
 
     def do_run(self, args):
@@ -219,6 +223,9 @@ class HydraSubInterpreter(SubInterpreter):
             else:
                 print("Please check the option name. Type 'options' to get help... ")
 
+    def help_set(self, args):
+        print("customize your settings...")
+        
 
 # third level
 class ArpspoofSubInterpreter(SubInterpreter):

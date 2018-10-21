@@ -142,8 +142,8 @@ class IOT_CLI(Cmd):
 
     def help_netstat(self):
         print("execc netstat")
-    '''
-
+    
+    # create an new terminal
     def do_new(self, input):
         # Mac
         if platform.system() == "Darwin":
@@ -175,7 +175,7 @@ class IOT_CLI(Cmd):
 
     def help_new(self):
         print("create a new terminal...")
-
+    '''
     # a func used to test stuff
     def do_test(self):
         pass

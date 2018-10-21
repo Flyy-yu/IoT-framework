@@ -10,7 +10,7 @@ def the_banner():
             | | |_| || |     | |  __/\__ \ |_| | | | | (_| |
             |___\___/ |_|     |_|\___||___/\__|_|_| |_|\__, |
                                                     |___/ 
-             Powered by JHU - https://www.xxx.com/
-                              Version: 0.0.1                                           
+             Powered by JHU - https://isi.jhu.edu/
+                              Version: 0.0.2                                           
             """
     print(banner_logo)

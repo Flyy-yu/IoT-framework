@@ -239,8 +239,8 @@ class ArpspoofSubInterpreter(SubInterpreter):
             option_name = setting_args[0].lower()
             setting_value = setting_args[1]
             if option_name == 'victimIp':
-                update.set_setting(self.json, option_name, setting_value)
-                update.refresh(self.json)
+                update.set_setting(self.json_file, option_name, setting_value)
+                update.refresh(self.json_file)
             elif option_name == 'RouterIP':
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
@@ -448,8 +448,8 @@ class TcpdumpSubInterpreter(SubInterpreter):
             option_name = setting_args[0].lower()
             setting_value = setting_args[1]
             if option_name == 'interface':
-                update.set_setting(self.json, option_name, setting_value)
-                update.refresh(self.json)
+                update.set_setting(self.json_file, option_name, setting_value)
+                update.refresh(self.json_file)
             elif option_name == 'amount':
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)

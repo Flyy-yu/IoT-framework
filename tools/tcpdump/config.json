@@ -1,0 +1,20 @@
+{
+  "command": {
+    "interface": {
+      "default": "en0",
+      "intro": "Wireless capture interface",
+      "required": 1
+    },
+    "amount": {
+      "default": "100",
+      "intro": "how many packets to capture?",
+      "required": 1
+    }
+  },
+  "version": "x.x",
+  "intro": "use tcpdump to capture raw 802.11 frame ",
+  "name": "tcpdump",
+  "links": [
+    "http://www.tcpdump.org/"
+  ]
+}

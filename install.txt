@@ -18,7 +18,6 @@ apt-get install dsniff
 apt-get install socat
 apt-get install aircrack-ng
 
-
 From Github
 
 git clone https://github.com/devtty
@@ -39,6 +38,8 @@ pip3 install cffi
 python3 -m pip install -r requirements.txt
 python3 -m pip install bluepy
 python3 rsf.py
+
+pip install scapy
 
 
 git clone https://github.com/craigz28/firmwalker.git

@@ -16,6 +16,7 @@ import importlib
 
 PROMPT = "IOT-CLI"
 
+
 class UtilityTool(object):
     def __init__(self, config_file):
         with open(config_file, 'r') as fp:
@@ -113,13 +114,13 @@ class Update_Setting(object):
 
 class SubInterpreter(Cmd):
     # static object: json file directory
-    
+
     def __init__(self, json_file):
         self.json_file = json_file
         Cmd.__init__(self)
         Cmd.doc_header = "\n\nSupported Commands\n=============================="
         Cmd.undoc_header = Fore.LIGHTYELLOW_EX + \
-                       'Execute Module \n===========================' + Fore.RESET
+                           'Execute Module \n===========================' + Fore.RESET
         Cmd.ruler = ''
 
     intro = Fore.MAGENTA + "Tool Interface: \n\
@@ -128,12 +129,22 @@ class SubInterpreter(Cmd):
         options\t\t show all options and current setting\n \
         set\t\t update config value\n \
         back\t\t back to the previous CLI level\n\n " + Fore.RESET + \
-        Fore.RED + "\t run\t\t generate the command based on user's setting and run the command in a new terminal\n\n" + Fore.RESET +\
-        Fore.MAGENTA+ "\n \Type ? to list full commands\n And you can type help <command> to get help\n\
+            Fore.RED + "\t run\t\t generate the command based on user's setting and run the command in a new terminal\n\n" + Fore.RESET + \
+            Fore.MAGENTA + "\n \Type ? to list full commands\n And you can type help <command> to get help\n\
         ==============================================" + Fore.RESET
 
     def do_run(self, args):
-        pass
+        tool_name = self.__class__.__name__
+        tool_name = tool_name[:tool_name.find('SubInterpreter')].lower()
+        tool_module_name = 'tools.{}.{}'.format(tool_name, tool_name + '_usage')
+        current_module = importlib.import_module(tool_module_name)
+        current_class = getattr(current_module, tool_name)
+        current_object = current_class(self.json_file)
+        raw_cmd = Print_Utils().print_options(self.json_file)[1]
+        print(raw_cmd)
+        run_cmd = current_object.get_basic_command(raw_cmd)
+        res = current_object.run_command(3, run_cmd)
+        print(res)
 
     def do_options(self, args):
         options = Print_Utils()
@@ -162,16 +173,6 @@ class SubInterpreter(Cmd):
 
 
 class PingSubInterpreter(SubInterpreter):
-    def do_run(self, args):
-        tool_module_name = 'tools.{}.{}'.format('ping', 'ping' + '_usage')
-        current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Ping(self.json_file)
-        raw_cmd = Print_Utils().print_options(self.json_file)[1]
-        print(raw_cmd)
-        run_cmd = current_object.get_basic_command(raw_cmd)
-        res = current_object.run_command(3, run_cmd)
-        print(res)
-
     # update setting value from user's input
     def do_set(self, args):
         update = Update_Setting()
@@ -192,15 +193,6 @@ class PingSubInterpreter(SubInterpreter):
 class HydraSubInterpreter(SubInterpreter):
     # update setting value from user's input
 
-    def do_run(self, args):
-        tool_module_name = 'tools.{}.{}'.format('hydra', 'hydra' + '_usage')
-        current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Hydra(self.json_file)
-        raw_cmd = Print_Utils().print_options(self.json_file)[1]
-        print(raw_cmd)
-        run_cmd = current_object.get_basic_command(raw_cmd)
-        res = current_object.run_command(3, run_cmd)
-        print(res)
 
     def do_set(self, args):
         update = Update_Setting()
@@ -224,7 +216,7 @@ class HydraSubInterpreter(SubInterpreter):
 
     def help_set(self, args):
         print("customize your settings...")
-        
+
 
 # third level
 class ArpspoofSubInterpreter(SubInterpreter):
@@ -261,16 +253,6 @@ class ArpspoofSubInterpreter(SubInterpreter):
 
 # third level
 class TftpSubInterpreter(SubInterpreter):
-    def do_run(self, args):
-        tool_module_name = 'tools.{}.{}'.format('tftp', 'tftp' + '_usage')
-        current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Tftp(self.json_file)
-        raw_cmd = Print_Utils().print_options(self.json_file)[1]
-        print(raw_cmd)
-        run_cmd = current_object.get_basic_command(raw_cmd)
-        res = current_object.run_command(3, run_cmd)
-        print(res)
-
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
@@ -290,17 +272,6 @@ class TftpSubInterpreter(SubInterpreter):
 
 
 class BinwalkSubInterpreter(SubInterpreter):
-    def do_run(self, args):
-        tool_module_name = 'tools.{}.{}'.format('binwalk', 'binwalk' + '_usage')
-        current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Binwalk(self.json_file)
-        raw_cmd = Print_Utils().print_options(self.json_file)[1]
-        print "this is the raw command:"
-        print(raw_cmd)
-        run_cmd = current_object.get_basic_command(raw_cmd)
-        res = current_object.run_command(3, run_cmd)
-        print(res)
-
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
@@ -343,16 +314,6 @@ class KismetSubInterpreter(SubInterpreter):
 
 
 class RopgadgetSubInterpreter(SubInterpreter):
-    def do_run(self, args):
-        tool_module_name = 'tools.{}.{}'.format('ropgadget', 'ropgadget' + '_usage')
-        current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Ropgadget(self.json_file)
-        raw_cmd = Print_Utils().print_options(self.json_file)[1]
-        print(raw_cmd)
-        run_cmd = current_object.get_basic_command(raw_cmd)
-        res = current_object.run_command(3, run_cmd)
-        print(res)
-
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
@@ -398,16 +359,6 @@ class ApktoolsSubInterpreter(SubInterpreter):
 
 
 class KillerbeeSubInterpreter(SubInterpreter):
-    def do_run(self, args):
-        tool_module_name = 'tools.{}.{}'.format('killerbee', 'killerbee' + '_usage')
-        current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Killerbee(self.json_file)
-        raw_cmd = Print_Utils().print_options(self.json_file)[1]
-        print(raw_cmd)
-        run_cmd = current_object.get_basic_command(raw_cmd)
-        res = current_object.run_command(3, run_cmd)
-        print(res)
-
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
@@ -424,16 +375,6 @@ class KillerbeeSubInterpreter(SubInterpreter):
 
 
 class BaudrateSubInterpreter(SubInterpreter):
-    def do_run(self, args):
-        tool_module_name = 'tools.{}.{}'.format('baudrate', 'baudrate' + '_usage')
-        current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Baudrate(self.json_file)
-        raw_cmd = Print_Utils().print_options(self.json_file)[1]
-        print(raw_cmd)
-        run_cmd = current_object.get_basic_command(raw_cmd)
-        res = current_object.run_command(3, run_cmd)
-        print(res)
-
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
@@ -456,16 +397,6 @@ class BaudrateSubInterpreter(SubInterpreter):
 
 
 class FirmwalkerSubInterpreter(SubInterpreter):
-    def do_run(self, args):
-        tool_module_name = 'tools.{}.{}'.format('firmwalker', 'firmwalker' + '_usage')
-        current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Firmwalker(self.json_file)
-        raw_cmd = Print_Utils().print_options(self.json_file)[1]
-        print(raw_cmd)
-        run_cmd = current_object.get_basic_command(raw_cmd)
-        res = current_object.run_command(3, run_cmd)
-        print(res)
-
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
@@ -501,6 +432,25 @@ class JdguiSubInterpreter(SubInterpreter):
             option_name = setting_args[0].lower()
             setting_value = setting_args[1]
             if option_name == 'apkname':
+                update.set_setting(self.json_file, option_name, setting_value)
+                update.refresh(self.json_file)
+            else:
+                print("Please check the option name. Type 'options' to get help... ")
+
+
+class TcpdumpSubInterpreter(SubInterpreter):
+    def do_set(self, args):
+        update = Update_Setting()
+        setting_args = shlex.split(args)
+        if len(setting_args) != 2:
+            print("check your args! Type 'options' to get help...")
+        else:
+            option_name = setting_args[0].lower()
+            setting_value = setting_args[1]
+            if option_name == 'interface':
+                update.set_setting(self.json, option_name, setting_value)
+                update.refresh(self.json)
+            elif option_name == 'amount':
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
             else:

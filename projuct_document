@@ -33,3 +33,7 @@ https://github.com/adi0x90/attifyos
 
 
 -------------------------------------
+
+
+subinterpreter file includes all the interpreter class for different tool
+it handle user input from the UI, and interact with tools_uasgae file.

@@ -63,6 +63,8 @@ class Tools_Interface(Cmd):
             use_cli = BaudrateSubInterpreter(json_dir)
         elif command.lower() == 'binwalk':
             use_cli = BinwalkSubInterpreter(json_dir)
+        elif command.lower() == 'tcpdump':
+            use_cli = TcpdumpSubInterpreter(json_dir)
         else:
             print(
                 Fore.YELLOW + "Unknown Tools name, you can type 'show' to know all supported tools." + Fore.RESET)

@@ -88,9 +88,8 @@ class IOT_CLI(Cmd):
     Core Commands:\n\
     ==============================================\n \
     tools\t\t show all avaiable tools with descriptions in CLI\n \
-    new\t\t create a new terminal\n \
     clear\t\t clear the output\n \
-    quit or q\t\t exit the CLI\n\n \
+    exit or q\t\t exit the CLI\n\n \
     <> \t\t otherwise default is shell mode\n\n\
     Type ? to list full commands\n\
     And you can type help <command> to get help\n\

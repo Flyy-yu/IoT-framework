@@ -47,6 +47,10 @@
     "minicom": {
       "Description": "Minicom is a text-based modem control and terminal emulation program for Unix-like operating systems",
       "Example": "use minicom"
+    },
+    "tcpdump": {
+      "Description": "collect raw 802.11 frame with tcpdump",
+      "Example": "use tcpdump"
     }
   }
 }

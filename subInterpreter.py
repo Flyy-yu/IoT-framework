@@ -135,8 +135,8 @@ class SubInterpreter(Cmd):
 
     def do_run(self, args):
         tool_name = self.__class__.__name__
-        tool_name = tool_name[:tool_name.find('SubInterpreter')].lower()
-        tool_module_name = 'tools.{}.{}'.format(tool_name, tool_name + '_usage')
+        tool_name = tool_name[:tool_name.find('SubInterpreter')]
+        tool_module_name = 'tools.{}.{}'.format(tool_name.lower(), tool_name.lower() + '_usage')
         current_module = importlib.import_module(tool_module_name)
         current_class = getattr(current_module, tool_name)
         current_object = current_class(self.json_file)

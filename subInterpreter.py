@@ -134,6 +134,8 @@ class SubInterpreter(Cmd):
         ==============================================" + Fore.RESET
 
     def do_run(self, args):
+        #代码的精髓在这里 xD
+        #dynamic import module and class base on selected tool
         tool_name = self.__class__.__name__
         tool_name = tool_name[:tool_name.find('SubInterpreter')]
         tool_module_name = 'tools.{}.{}'.format(tool_name.lower(), tool_name.lower() + '_usage')

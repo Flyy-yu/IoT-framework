@@ -32,31 +32,3 @@ git clone https://github.com/JonathanSalwan/ROPgadget
 cd ROPgadget
 python setup.py install
 
-
-From Github
-
-git clone https://github.com/devtty
-
-git clone https://github.com/radare/radare2.git
-sys/install.sh
-
-git clone https://github.com/pxb1988/dex2jar.git
-./gradlew assemble
-
-git clone https://github.com/Flyy-yu/IoT-framework.git
-
-git clone https://www.github.com/threat9/routersploit
-cd routersploit
-python3 -m pip install -r requirements.txt
-pip3 install cffi
-python3 -m pip install -r requirements.txt
-python3 -m pip install bluepy
-python3 rsf.py
-
-
-
-MacOS:
-brew upgrade
-brew install sslsplit
-
-

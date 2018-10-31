@@ -1,5 +1,9 @@
 # the basic command: ping 8.8.8.8
 # tcpdump -i en0 -I -w cap.pcap -c 10
+
+# sudo ifconfig wlx9cefd5fd8f86 down
+# sudo iwconfig wlx9cefd5fd8f86 mode Monitor
+# sudo ifconfig wlx9cefd5fd8f86 up
 from tools.Utility import *
 
 

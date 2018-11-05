@@ -29,5 +29,4 @@ if __name__ == '__main__':
     cmd["type"] = "apk"
     cmd["file"] = "/home/iot/Desktop/a.apk"
     cmd = (test_obj.get_basic_command(cmd))
-    print cmd
     test_obj.run_command(3, cmd)

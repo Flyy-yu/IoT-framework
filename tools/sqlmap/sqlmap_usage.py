@@ -17,4 +17,12 @@ class Sqlmap(UtilityTool):
 
 
 if __name__ == "__main__":
-    pass
+    test_obj = Sqlmap("config.json")
+
+    cmd = {}
+    cmd["type"] = ''
+    cmd["post_body"] = ''
+
+    cmd = (test_obj.get_basic_command(cmd))
+
+    test_obj.run_command(3, cmd)

@@ -23,7 +23,7 @@
     "param": {
       "default": "password",
       "intro": "the vulnerable parameter",
-      "required": 0
+      "required": 1
     }
   },
   "version": "x.x"

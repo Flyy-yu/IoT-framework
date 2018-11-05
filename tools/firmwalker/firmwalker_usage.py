@@ -12,4 +12,10 @@ class Firmwalker(UtilityTool):
 
 
 if __name__ == '__main__':
-    print(get_basic_command('/home/iot/Desktop/cpio-root'))
+    test_obj = Firmwalker("config.json")
+    cmd = {}
+
+    cmd['dir'] = ''
+
+    cmd = (test_obj.get_basic_command(cmd))
+    test_obj.run_command(3, cmd)

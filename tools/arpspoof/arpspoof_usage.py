@@ -16,4 +16,12 @@ class Arpspoof(UtilityTool):
         return command
 
 if __name__ == '__main__':
-    print(get_basic_command('8.8.8.8', '8.8.8.1', '8.8.8.2'))
+    test_obj = Arpspoof("config.json")
+    cmd = {}
+
+    cmd['victimip'] = ''
+    cmd['myip'] = ''
+    cmd['routerip'] = ''
+
+    cmd = (test_obj.get_basic_command(cmd))
+    test_obj.run_command(3, cmd)

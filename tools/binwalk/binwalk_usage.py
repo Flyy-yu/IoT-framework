@@ -14,4 +14,10 @@ class Binwalk(UtilityTool):
 
 
 if __name__ == '__main__':
-    print(get_basic_command('/Desktop/a.bin'))
+    test_obj = Binwalk("config.json")
+    cmd = {}
+
+    cmd['imagefile'] = ''
+
+    cmd = (test_obj.get_basic_command(cmd))
+    test_obj.run_command(3, cmd)

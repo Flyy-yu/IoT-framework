@@ -15,5 +15,14 @@ class Tcpdump(UtilityTool):
         command = 'tcpdump -i {} -I -w ~/Desktop/mycap.pcap -c {}'.format(cmd['interface'], cmd['amount'])
         return command
 
+
 if __name__ == "__main__":
-    print 'it work :)'
+    print("Unit Test")
+    test_obj = Tcpdump("config.json")
+
+    cmd = {}
+    cmd['interface'] = ''
+    cmd['amount'] = ''
+
+    cmd = (test_obj.get_basic_command(cmd))
+    test_obj.run_command(3, cmd)

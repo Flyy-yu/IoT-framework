@@ -19,4 +19,11 @@ class Apktools(UtilityTool):
 
 
 if __name__ == '__main__':
-    print 1
+    test_obj = Apktools("config.json")
+    cmd = {}
+
+    cmd['method'] = ''
+    cmd['apkname'] = ''
+
+    cmd = (test_obj.get_basic_command(cmd))
+    test_obj.run_command(3, cmd)

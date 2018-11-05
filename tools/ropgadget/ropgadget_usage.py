@@ -14,4 +14,11 @@ class Ropgadget(UtilityTool):
 
 
 if __name__ == '__main__':
-    print(get_basic_command('libc.so.6'))
+    print("Unit Test")
+    test_obj = Ropgadget("config.json")
+
+    cmd = {}
+    cmd["binary"] = ""
+
+    cmd = (test_obj.get_basic_command(cmd))
+    test_obj.run_command(3, cmd)

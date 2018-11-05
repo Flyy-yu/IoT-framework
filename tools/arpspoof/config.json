@@ -5,17 +5,17 @@
     "https://su2.info/doc/arpspoof.php"
   ],
   "command": {
-    "victimIp": {
+    "victimip": {
       "default": "192.168.1.5",
       "intro": "the Victim's IP address",
       "required": 1
     },
-    "myIP": {
+    "myip": {
       "default": "192.168.1.3",
-      "intro": "the absolute path of the firmware image",
+      "intro": "attcker's ip address",
       "required": 1
     },
-    "RouterIP": {
+    "routerip": {
       "default": "192.168.1.1",
       "intro": "The router's ip address",
       "required": 1

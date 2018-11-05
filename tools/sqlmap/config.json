@@ -1,0 +1,30 @@
+{
+  "name": "sqlmap",
+  "intro": "sqlmap is an open source penetration testing tool that automates the process of detecting and exploiting SQL injection flaws and taking over of database servers.",
+  "links": [
+    "http://sqlmap.org/"
+  ],
+  "command": {
+    "type": {
+      "default": "type",
+      "intro": "get request or post request?",
+      "required": 1
+    },
+    "url": {
+      "default": "www.google.com?id=1",
+      "intro": "Path and name of the APK file",
+      "required": 0
+    },
+    "post_body": {
+      "default": "~/Desktop/sql.txt",
+      "intro": "Body of the post request(from BurpSuite).",
+      "required": 0
+    },
+    "param": {
+      "default": "password",
+      "intro": "the vulnerable parameter",
+      "required": 0
+    }
+  },
+  "version": "x.x"
+}

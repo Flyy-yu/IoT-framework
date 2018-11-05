@@ -15,6 +15,5 @@ class Arpspoof(UtilityTool):
         command = [command1, command2]
         return command
 
-
 if __name__ == '__main__':
     print(get_basic_command('8.8.8.8', '8.8.8.1', '8.8.8.2'))

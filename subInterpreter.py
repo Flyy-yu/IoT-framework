@@ -194,22 +194,16 @@ class PingSubInterpreter(SubInterpreter):
 class HydraSubInterpreter(SubInterpreter):
     # update setting value from user's input
 
-
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
+        options = ['ip', 'protocol', 'wordlist']
         if len(setting_args) != 2:
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
             setting_value = setting_args[1]
-            if option_name == 'ip':
-                update.set_setting(self.json_file, option_name, setting_value)
-                update.refresh(self.json_file)
-            elif option_name == 'protocol':
-                update.set_setting(self.json_file, option_name, setting_value)
-                update.refresh(self.json_file)
-            elif option_name == 'wordlist':
+            if option_name in options:
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
             else:
@@ -234,18 +228,13 @@ class ArpspoofSubInterpreter(SubInterpreter):
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
+        options = ['victimip', 'routerip', 'myip']
         if len(setting_args) != 2:
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
             setting_value = setting_args[1]
-            if option_name == 'victimIp':
-                update.set_setting(self.json_file, option_name, setting_value)
-                update.refresh(self.json_file)
-            elif option_name == 'RouterIP':
-                update.set_setting(self.json_file, option_name, setting_value)
-                update.refresh(self.json_file)
-            elif option_name == 'myIP':
+            if option_name in options:
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
             else:
@@ -257,15 +246,13 @@ class TftpSubInterpreter(SubInterpreter):
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
+        options = ['method', 'filename']
         if len(setting_args) != 2:
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
             setting_value = setting_args[1]
-            if option_name == 'method':
-                update.set_setting(self.json_file, option_name, setting_value)
-                update.refresh(self.json_file)
-            elif option_name == 'filename':
+            if option_name in options:
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
             else:
@@ -276,12 +263,13 @@ class BinwalkSubInterpreter(SubInterpreter):
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
+        options = ['imagefile']
         if len(setting_args) != 2:
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
             setting_value = setting_args[1]
-            if option_name == 'imagefile':
+            if option_name in options:
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
             else:
@@ -318,12 +306,13 @@ class RopgadgetSubInterpreter(SubInterpreter):
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
+        options = ['binary']
         if len(setting_args) != 2:
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
             setting_value = setting_args[1]
-            if option_name == 'binary':
+            if option_name in options:
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
             else:
@@ -331,28 +320,16 @@ class RopgadgetSubInterpreter(SubInterpreter):
 
 
 class ApktoolsSubInterpreter(SubInterpreter):
-    def do_run(self, args):
-        tool_module_name = 'tools.{}.{}'.format('apktools', 'apktools' + '_usage')
-        current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Apktools(self.json_file)
-        raw_cmd = Print_Utils().print_options(self.json_file)[1]
-        print(raw_cmd)
-        run_cmd = current_object.get_basic_command(raw_cmd)
-        res = current_object.run_command(3, run_cmd)
-        print(res)
-
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
+        options = ['method', 'apkname']
         if len(setting_args) != 2:
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
             setting_value = setting_args[1]
-            if option_name == 'method':
-                update.set_setting(self.json_file, option_name, setting_value)
-                update.refresh(self.json_file)
-            elif option_name == 'apkname':
+            if option_name in options:
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
             else:
@@ -363,12 +340,13 @@ class KillerbeeSubInterpreter(SubInterpreter):
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
+        options = ['channel']
         if len(setting_args) != 2:
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
             setting_value = setting_args[1]
-            if option_name == 'channel':
+            if option_name in options:
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
             else:
@@ -379,18 +357,13 @@ class BaudrateSubInterpreter(SubInterpreter):
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
+        options = ['ip', 'protocol', 'wordlist']
         if len(setting_args) != 2:
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
             setting_value = setting_args[1]
-            if option_name == 'ip':
-                update.set_setting(self.json_file, option_name, setting_value)
-                update.refresh(self.json_file)
-            elif option_name == 'protocol':
-                update.set_setting(self.json_file, option_name, setting_value)
-                update.refresh(self.json_file)
-            elif option_name == 'wordlist':
+            if option_name in options:
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
             else:
@@ -401,12 +374,13 @@ class FirmwalkerSubInterpreter(SubInterpreter):
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
+        options = ['dir']
         if len(setting_args) != 2:
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
             setting_value = setting_args[1]
-            if option_name == 'dir':
+            if option_name in options:
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
             else:
@@ -417,15 +391,13 @@ class JdcoreSubInterpreter(SubInterpreter):
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
+        options = ['type', 'file']
         if len(setting_args) != 2:
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
             setting_value = setting_args[1]
-            if option_name == 'type':
-                update.set_setting(self.json_file, option_name, setting_value)
-                update.refresh(self.json_file)
-            if option_name == 'file':
+            if option_name in options:
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
             else:
@@ -436,15 +408,30 @@ class TcpdumpSubInterpreter(SubInterpreter):
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
+        options = ['interface', 'amount']
         if len(setting_args) != 2:
             print("check your args! Type 'options' to get help...")
         else:
             option_name = setting_args[0].lower()
             setting_value = setting_args[1]
-            if option_name == 'interface':
+            if option_name in options:
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
-            elif option_name == 'amount':
+            else:
+                print("Please check the option name. Type 'options' to get help... ")
+
+
+class SqlmapSubInterpreter(SubInterpreter):
+    def do_set(self, args):
+        update = Update_Setting()
+        setting_args = shlex.split(args)
+        options = ['type', 'url', 'post_body', 'param']
+        if len(setting_args) != 2:
+            print("check your args! Type 'options' to get help...")
+        else:
+            option_name = setting_args[0].lower()
+            setting_value = setting_args[1]
+            if option_name in options:
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
             else:

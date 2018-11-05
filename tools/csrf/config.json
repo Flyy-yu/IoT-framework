@@ -1,0 +1,20 @@
+{
+  "name": "csrf",
+  "intro": "This tool help you generate CSRF Poc HTML file",
+  "links": [
+    "https://google.com"
+  ],
+  "command": {
+    "url": {
+      "default": "www.google.com",
+      "intro": "The target url or endpoint",
+      "required": 1
+    },
+    "payload": {
+      "default": "value=1",
+      "intro": "The CSRF payload",
+      "required": 1
+    }
+  },
+  "version": "x.x"
+}

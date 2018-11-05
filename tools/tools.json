@@ -1,6 +1,6 @@
 {
   "Tools": {
-    "hydra(demo avaiable)": {
+    "hydra": {
       "Description": "Hydra is a very well-known and respected network log on cracker (password cracking tool)",
       "Example": "use hydra"
     },
@@ -37,7 +37,7 @@
       "Example": "use kismet"
     },
     "jdcore": {
-      "Description": "JD-GUI is a standalone graphical utility that displays Java source codes of .class files.",
+      "Description": "Java decompiler, can decompile apk and jar file",
       "Example": "use jdcore"
     },
     "firmwalker": {
@@ -51,6 +51,14 @@
     "tcpdump": {
       "Description": "collect raw 802.11 frame with tcpdump",
       "Example": "use tcpdump"
+    },
+    "sqlmap": {
+      "Description": "sqlmap is an tool that automates the process of detecting and exploiting SQL injection flaws",
+      "Example": "use sqlmap"
+    },
+    "csrf": {
+      "Description": "generate poc HTML file for the csrf attack",
+      "Example": "use csrf"
     }
   }
 }

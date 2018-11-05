@@ -1,11 +1,16 @@
 {
-  "name": "jdgui",
+  "name": "jdcore",
   "intro": "The “Java Decompiler project” aims to develop tools in order to decompile and analyze Java 5 “byte code” and the later versions.",
   "links": [
-    "http://jd.benow.ca/"
+    "https://github.com/betterphp/JDCommandLine"
   ],
   "command": {
-    "apkname": {
+    "type": {
+      "default": "apk",
+      "intro": "APK file or jar file?",
+      "required": 1
+    },
+    "file": {
       "default": "/home/iot/Desktop/app-debug.apk",
       "intro": "Path and name of the APK file",
       "required": 1

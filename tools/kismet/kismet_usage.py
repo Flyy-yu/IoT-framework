@@ -1,6 +1,7 @@
-# sudo ifconfig wlx9cefd5fd8f86 down
-# sudo iwconfig wlx9cefd5fd8f86 mode Monitor
-# sudo kismet -c wlx9cefd5fd8f86
+# sudo ifconfig wlx00c0ca59f60e down
+# sudo iwconfig wlx00c0ca59f60e mode Monitor
+# sudo ifconfig wlx00c0ca59f60e up
+# sudo kismet -c wlx00c0ca59f60e
 from tools.Utility import *
 
 

@@ -36,9 +36,9 @@
       "Description": "Kismet is a network detector, packet sniffer, and intrusion detection system for 802.11 wireless LANs.",
       "Example": "use kismet"
     },
-    "jdgui": {
+    "jdcore": {
       "Description": "JD-GUI is a standalone graphical utility that displays Java source codes of .class files.",
-      "Example": "use jdgui"
+      "Example": "use jdcore"
     },
     "firmwalker": {
       "Description": "A simple bash script for searching the extracted or mounted firmware file system.",

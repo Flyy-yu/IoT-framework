@@ -65,6 +65,8 @@ class Tools_Interface(Cmd):
             use_cli = BinwalkSubInterpreter(json_dir)
         elif command.lower() == 'tcpdump':
             use_cli = TcpdumpSubInterpreter(json_dir)
+        elif command.lower() == 'jdcore':
+            use_cli = JdcoreSubInterpreter(json_dir)
         else:
             print(
                 Fore.YELLOW + "Unknown Tools name, you can type 'show' to know all supported tools." + Fore.RESET)
@@ -177,6 +179,7 @@ class IOT_CLI(Cmd):
     def help_new(self):
         print("create a new terminal...")
     '''
+
     # a func used to test stuff
     def do_test(self):
         pass

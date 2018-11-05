@@ -134,7 +134,7 @@ class SubInterpreter(Cmd):
         ==============================================" + Fore.RESET
 
     def do_run(self, args):
-        #dynamic import module and class base on selected tool
+        # dynamic import module and class base on selected tool
         tool_name = self.__class__.__name__
         tool_name = tool_name[:tool_name.find('SubInterpreter')]
         tool_module_name = 'tools.{}.{}'.format(tool_name.lower(), tool_name.lower() + '_usage')
@@ -413,17 +413,7 @@ class FirmwalkerSubInterpreter(SubInterpreter):
                 print("Please check the option name. Type 'options' to get help... ")
 
 
-class JdguiSubInterpreter(SubInterpreter):
-    def do_run(self, args):
-        tool_module_name = 'tools.{}.{}'.format('jdgui', 'jdgui' + '_usage')
-        current_module = importlib.import_module(tool_module_name)
-        current_object = current_module.Jdgui(self.json_file)
-        raw_cmd = Print_Utils().print_options(self.json_file)[1]
-        print(raw_cmd)
-        run_cmd = current_object.get_basic_command(raw_cmd)
-        res = current_object.run_command(3, run_cmd)
-        print(res)
-
+class JdcoreSubInterpreter(SubInterpreter):
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
@@ -432,7 +422,10 @@ class JdguiSubInterpreter(SubInterpreter):
         else:
             option_name = setting_args[0].lower()
             setting_value = setting_args[1]
-            if option_name == 'apkname':
+            if option_name == 'type':
+                update.set_setting(self.json_file, option_name, setting_value)
+                update.refresh(self.json_file)
+            if option_name == 'file':
                 update.set_setting(self.json_file, option_name, setting_value)
                 update.refresh(self.json_file)
             else:

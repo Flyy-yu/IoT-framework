@@ -31,6 +31,10 @@ git clone https://github.com/craigz28/firmwalker.git
 git clone https://github.com/JonathanSalwan/ROPgadget
 cd ROPgadget
 python setup.py install
+mkdir ~/tools
+cd ~/tools
+
+
 
 
 From Github
@@ -53,7 +57,7 @@ python3 -m pip install -r requirements.txt
 python3 -m pip install bluepy
 python3 rsf.py
 
-
+apt-get install -y wireshark
 
 MacOS:
 brew upgrade

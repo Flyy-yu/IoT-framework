@@ -23,6 +23,7 @@ sudo pip install scapy
 sudo pip3 install pyshark
 sudo pip install pyshark
 sudo pip install capstone
+sudo pip install colorama
 git clone https://github.com/longld/peda.git ~/peda
 echo "source ~/peda/peda.py" >> ~/.gdbinit
 cd ~/Desktop
@@ -31,4 +32,4 @@ git clone https://github.com/craigz28/firmwalker.git
 git clone https://github.com/JonathanSalwan/ROPgadget
 cd ROPgadget
 python setup.py install
-
+apt-get install -y wireshark

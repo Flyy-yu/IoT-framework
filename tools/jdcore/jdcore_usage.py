@@ -13,7 +13,7 @@ class Jdcore(UtilityTool):
     def get_basic_command(self, cmd):
 
         if cmd['type'].lower() == 'apk':
-            command = 'unzip {} -d ~/Desktop/dex  && dex2jar ~/Desktop/dex/classes.dex && java -jar /home/iot/tools/jd-core-java/build/libs/jd-core-java-1.2.jar -z ~/Desktop/classes-dex2jar.jar ~/Desktop/output.zip'.format(
+            command = 'unzip {} -d ~/Desktop/dex  && dex2jar ~/Desktop/dex/classes.dex -o ~/Desktop/classes-dex2jar.jar && java -jar /home/iot/tools/jd-core-java/build/libs/jd-core-java-1.2.jar -z ~/Desktop/classes-dex2jar.jar ~/Desktop/output.zip'.format(
                 cmd['file'])
             return command
         if cmd['type'].lower() == 'jar':

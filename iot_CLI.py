@@ -1,7 +1,6 @@
 # -*- coding:utf-8 -*-
 
 from subInterpreter import *
-from tools.ping import ping_usage
 
 PROMPT = "IOT-CLI"
 
@@ -41,33 +40,13 @@ class Tools_Interface(Cmd):
                  " (tools_lib)>> " + Fore.RESET + \
                  Back.RED + command + " >>>" + Back.RESET
         json_dir = 'tools/{}/config.json'.format(command.lower())
-        if command.lower() == 'arpspoof':
-            use_cli = ArpspoofSubInterpreter(json_dir)
-        elif command.lower() == 'tftp':
-            use_cli = TftpSubInterpreter(json_dir)
-        elif command.lower() == 'hydra':
-            use_cli = HydraSubInterpreter(json_dir)
-        elif command.lower() == 'killerbee':
-            use_cli = KillerbeeSubInterpreter(json_dir)
-        elif command.lower() == 'apktools':
-            use_cli = ApktoolsSubInterpreter(json_dir)
-        elif command.lower() == 'ropgadget':
-            use_cli = RopgadgetSubInterpreter(json_dir)
-        elif command.lower() == 'kismet':
-            use_cli = KismetSubInterpreter(json_dir)
-        elif command.lower() == 'ping':
-            use_cli = PingSubInterpreter(json_dir)
-        elif command.lower() == 'firmwalker':
-            use_cli = FirmwalkerSubInterpreter(json_dir)
-        elif command.lower() == 'baudrate':
-            use_cli = BaudrateSubInterpreter(json_dir)
-        elif command.lower() == 'binwalk':
-            use_cli = BinwalkSubInterpreter(json_dir)
-        elif command.lower() == 'tcpdump':
-            use_cli = TcpdumpSubInterpreter(json_dir)
-        elif command.lower() == 'jdcore':
-            use_cli = JdcoreSubInterpreter(json_dir)
-        else:
+
+        try:
+            class_name = command.lower()[0].upper() + command.lower()[1:] + 'SubInterpreter'
+            current_module = importlib.import_module('subInterpreter')
+            current_class = getattr(current_module, class_name)
+            use_cli = current_class(json_dir)
+        except:
             print(
                 Fore.YELLOW + "Unknown Tools name, you can type 'show' to know all supported tools." + Fore.RESET)
             return

@@ -1,0 +1,1 @@
+WDCHK (pronounced “woodchuck”) is a targeted data collection framework written in Python. It aims to make 802.11 data collection easier, with a future goal of developing a wireless fingerprinting framework.

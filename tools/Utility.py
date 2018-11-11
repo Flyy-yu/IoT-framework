@@ -50,11 +50,13 @@ class UtilityTool(object):
                 exec_res = e.returncode, e.message
             return exec_res
         elif exec_function == 3:
+
             if isinstance(cmd,list):
                 pre_cmd = ' '
             else:
                 pre_cmd = ''
             pre_cmd = pre_cmd.join(cmd)
+            print pre_cmd
             pre_cmd = pre_cmd + ';exec bash'
             exe_cmd = ['gnome-terminal', '-x', 'bash', '-c', pre_cmd]
             # exe_cmd.append(cmd)

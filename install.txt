@@ -18,6 +18,7 @@ apt-get install -y libssl-dev libevent-dev
 apt-get install -y dsniff
 apt-get install -y socat
 apt-get install -y aircrack-ng
+apt-get install -y android-tools-adb android-tools-fastboot
 sudo pip3 install scapy
 sudo pip install scapy
 sudo pip3 install pyshark
@@ -64,3 +65,4 @@ brew upgrade
 brew install sslsplit
 
 
+dirb https://www.youtube.com/watch?v=Z9HkZJ-qju0

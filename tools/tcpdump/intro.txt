@@ -1,1 +1,0 @@
-tcpdump -i en0 -I -w cap.pcap -c 10

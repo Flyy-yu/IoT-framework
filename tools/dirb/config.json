@@ -1,0 +1,20 @@
+{
+  "name": "dirb",
+  "intro": "DIRB is a Web Content Scanner. It looks for existing (and/or hidden) Web Objects. It basically works by launching a dictionary based attack against a web server and analyzing the response.",
+  "links": [
+    "https://tools.kali.org/web-applications/dirb"
+  ],
+  "command": {
+    "url": {
+      "default": "http://192.168.0.1",
+      "intro": "The base url",
+      "required": 1
+    },
+    "wordlist": {
+      "default": "/home/iot/tools/wordlist/dirb.txt",
+      "intro": "The wordlist file",
+      "required": 0
+    }
+  },
+  "version": "x.x"
+}

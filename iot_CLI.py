@@ -63,7 +63,7 @@ class Tools_Interface(Cmd):
 
         # do_EOF = do_back
 
-
+#TODO add dirb
 class IOT_CLI(Cmd):
     prompt = PROMPT + '> '
 
@@ -102,69 +102,6 @@ class IOT_CLI(Cmd):
 
     def help_exit(self):
         print('exit the application. Shorthand: x q Ctrl-D.')
-
-    '''
-    # Call an external program in python and retrieve the output/return code with subprocess
-
-    def do_netstat(self, input):
-        ## command to run - tcp only ##
-        cmd = "netstat -p tcp -f inet"
-
-        ## run it ##
-        p = subprocess.Popen(cmd, shell=True, stderr=subprocess.PIPE)
-
-        ## But do not wait till netstat finish, start displaying output immediately ##
-        while True:
-            out = p.stderr.read(1)
-            if out == '' and p.poll() != None:
-                break
-            if out != '':
-                sys.stdout.write(out)
-                sys.stdout.flush()
-
-    def help_netstat(self):
-        print("execc netstat")
-    
-    # create an new terminal
-    def do_new(self, input):
-        # Mac
-        if platform.system() == "Darwin":
-            command = 'open -a Terminal "`pwd`"'
-            p = subprocess.Popen(command, shell=True)
-            p.wait()
-            p.terminate()
-        elif platform.system() == "Linux":
-            try:
-                command = 'gnome-terminal'
-                p = subprocess.Popen(command, shell=True)
-                p.wait()
-                p.terminate()
-            except:
-                command = 'xterm'
-                p = subprocess.Popen(command, shell=True)
-                p.wait()
-                p.terminate()
-
-        elif platform.system() == "Windows":
-            command = 'start /wait'
-        # Unknown OS: modification
-        else:
-            print(
-                "Unknown OS, You can modify the code in iot_CLI.py:92 or search keyword 'Unknown OS: modification' to modify")
-
-            # os.system("sudo chmod a+x new_terminal.sh")
-            # subprocess.call("./new_terminal.sh")
-
-    def help_new(self):
-        print("create a new terminal...")
-    '''
-
-    # a func used to test stuff
-    def do_test(self):
-        pass
-
-    def help_test(self):
-        print("a func used to test stuff...")
 
     def default(self, input):
         # func used to capture stdout in real-time

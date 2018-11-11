@@ -48,10 +48,6 @@
       "Description": "Minicom is a text-based modem control and terminal emulation program for Unix-like operating systems",
       "Example": "use minicom"
     },
-    "tcpdump": {
-      "Description": "collect raw 802.11 frame with tcpdump",
-      "Example": "use tcpdump"
-    },
     "sqlmap": {
       "Description": "sqlmap is an tool that automates the process of detecting and exploiting SQL injection flaws",
       "Example": "use sqlmap"
@@ -59,6 +55,10 @@
     "csrf": {
       "Description": "generate poc HTML file for the csrf attack",
       "Example": "use csrf"
+    },
+    "dirb": {
+      "Description": "DIRB is a Web Content Scanner. It looks for existing Web Objects by launching a dictionary based attack against a web server",
+      "Example": "use dirb"
     }
   }
 }

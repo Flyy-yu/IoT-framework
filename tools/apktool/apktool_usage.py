@@ -11,9 +11,11 @@ class Apktool(UtilityTool):
     def get_basic_command(self, cmd):
 
         if cmd['method'].lower() == 'build':
-            command = 'apktool b {}'.format(cmd['apkname'])
+            dict_name = cmd['apkname'][cmd['apkname'].rfind('/'):]
+            command = 'apktool b {} -o ~/Desktop/{}'.format(cmd['apkname'], dict_name)
         if cmd['method'].lower() == 'decompile':
-            command = 'apktool d {}'.format(cmd['apkname'])
+            filename = cmd['apkname'][cmd['apkname'].rfind('/'), cmd['apkname'].find('.apk')]
+            command = 'apktool d {} -o ~/Desktop/{}'.format(cmd['apkname'], filename)
         return command
 
 

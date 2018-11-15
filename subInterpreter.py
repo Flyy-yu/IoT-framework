@@ -323,7 +323,7 @@ class ApktoolSubInterpreter(SubInterpreter):
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
-        options = ['method', 'apkname']
+        options = ['method', 'apk','folder']
         if len(setting_args) != 2:
             print("check your args! Type 'options' to get help...")
         else:

@@ -10,9 +10,14 @@
       "intro": "build or decompile",
       "required": 1
     },
-    "apkname": {
+    "apk": {
       "default": "/home/iot/Desktop/app-debug.apk",
       "intro": "the absolute path of the apk",
+      "required": 1
+    },
+    "folder": {
+      "default": "/home/iot/Desktop/app-debug",
+      "intro": "the absolute path of the folder",
       "required": 1
     }
   },

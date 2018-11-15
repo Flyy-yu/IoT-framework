@@ -14,7 +14,7 @@ class Apktool(UtilityTool):
             dict_name = cmd['folder'][cmd['folder'].rfind('/'):]
             command = 'apktool b {} -o ~/Desktop/{}'.format(cmd['folder'], dict_name)
         if cmd['method'].lower() == 'decompile':
-            filename = cmd['apk'][cmd['apk'].rfind('/'), cmd['apk'].find('.apk')]
+            filename = cmd['apk'][cmd['apk'].rfind('/'): cmd['apk'].find('.apk')]
             command = 'apktool d {} -o ~/Desktop/{}'.format(cmd['apk'], filename)
         return command
 
@@ -23,8 +23,8 @@ if __name__ == '__main__':
     test_obj = Apktool("config.json")
     cmd = {}
 
-    cmd['method'] = ''
-    cmd['apk'] = ''
+    cmd['method'] = 'decompile'
+    cmd['apk'] = '~/Desktop/app-debug.apk'
 
     cmd = (test_obj.get_basic_command(cmd))
     test_obj.run_command(3, cmd)

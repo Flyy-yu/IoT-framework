@@ -33,6 +33,14 @@ if __name__ == "__main__":
     run_cmd = test_obj.get_basic_command(cmd)
     print(run_cmd)
 
-    # print("\nExecute Test 3 new window")
-    # res = test_obj.run_command(3, run_cmd)
-    # print(res)
+    print("\nExecute Test 3 new window")
+
+    _list = []
+    _list.append(run_cmd)
+    cmd["ip"] = "8.8.8.8"
+    cmd["count"] = 3
+    run_cmd = test_obj.get_basic_command(cmd)
+    _list.append(run_cmd)
+
+    res = test_obj.run_command(3, _list)
+    print(res)

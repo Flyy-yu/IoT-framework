@@ -5,11 +5,8 @@ import subprocess
 import time
 import os
 import sys
-import platform
-import atexit
 import shlex
 import textwrap
-from lib import banner
 from colorama import Fore, Back
 from lib.prettytable import PrettyTable
 import importlib

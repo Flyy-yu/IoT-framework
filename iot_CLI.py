@@ -118,17 +118,7 @@ def exit_gracefully(signum, frame):
 
 
 if __name__ == '__main__':
-    banner_logo = Fore.RED + """
-                         ___ ____   _____ _______ _   _             
-                    |_ _/ _ \_  _| |_   _|__  ___| |_(_)_ __   __ _ 
-                    | | | | || |     | |/ _ \/ __| __| | '_ \ / _` |
-                    | | |_| || |     | |  __/\__ \ |_| | | | | (_| |
-                    |___\__/ |_|     |_|\___||___/\__|_|_| |_|\__, |
-                                                               |___/ 
-                     Powered by JHU - https://isi.jhu.edu/
-                                      Version: 0.0.2                                           
-                    """
-    print(banner_logo)
+    banner.the_banner()
     original_sigint = signal.getsignal(signal.SIGINT)
     signal.signal(signal.SIGINT, exit_gracefully)
     cli = IOT_CLI()

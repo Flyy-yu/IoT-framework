@@ -16,7 +16,7 @@ class Arpspoof(UtilityTool):
         return command
 
 if __name__ == '__main__':
-    test_obj = Arpspoof("config.json")
+    test_obj = Arpspoof("./tools/arpspoof/config.json")
     cmd = {}
 
     cmd['victimip'] = '192.168.1.102'

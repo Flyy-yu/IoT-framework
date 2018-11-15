@@ -19,9 +19,9 @@ if __name__ == '__main__':
     test_obj = Arpspoof("config.json")
     cmd = {}
 
-    cmd['victimip'] = ''
-    cmd['myip'] = ''
-    cmd['routerip'] = ''
+    cmd['victimip'] = '192.168.1.102'
+    cmd['myip'] = '192.168.1.101'
+    cmd['routerip'] = '192.168.1.1'
 
     cmd = (test_obj.get_basic_command(cmd))
     test_obj.run_command(3, cmd)

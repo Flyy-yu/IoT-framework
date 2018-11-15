@@ -50,7 +50,6 @@ class UtilityTool(object):
                 exec_res = e.returncode, e.message
             return exec_res
         elif exec_function == 3:
-
             if isinstance(cmd,list):
                 pre_cmd = ' '
             else:

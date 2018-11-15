@@ -9,6 +9,7 @@ apt-get install -y python-pip
 apt-get install -y python3-pip
 apt-get install -y default-jre
 apt-get install -y default-jdk
+apt-get install -y cmake libusb-1.0-0-dev make gcc g++ libbluetooth-dev pkg-config libpcap-dev python-numpy python-pyside python-qt4
 apt-get install -y minicom
 apt-get install -y python3-pip
 apt-get install -y libglib2.0-dev

@@ -7,11 +7,12 @@ class Ping(UtilityTool):
         super(Ping, self).__init__(config_file)
 
     def get_basic_command(self, cmd):
-        print(cmd)
-        command = []
-        command.append("ping")
-        command.append("-c 3")
-        command.append(cmd['ip'])
+        # print(cmd)
+        if "count" in cmd:
+            count = cmd["count"]
+        else:
+            count = 3
+        command = "ping -c {} {}".format(count, cmd["ip"])
         return command
 
 
@@ -28,9 +29,10 @@ if __name__ == "__main__":
     print("\nGenerate Command:")
     cmd = {}
     cmd["ip"] = "10.0.0.1"
+    cmd["count"] = "5"
     run_cmd = test_obj.get_basic_command(cmd)
     print(run_cmd)
 
-    print("\nExecute Test 3 new window")
-    res = test_obj.run_command(3, run_cmd)
-    print(res)
+    # print("\nExecute Test 3 new window")
+    # res = test_obj.run_command(3, run_cmd)
+    # print(res)

@@ -12,7 +12,8 @@ class Arpspoof(UtilityTool):
     def get_basic_command(self, cmd):
         command1 = 'arpspoof -i {} -t {} {}'.format(cmd['myip'], cmd['victimip'], cmd['routerip'])
         command2 = 'arpspoof -i {} -t {} {}'.format(cmd['myip'], cmd['routerip'], cmd['victimip'])
-        command = [command1, command2]
+        command3 = 'wireshark'
+        command = [command1, command2,command3]
         return command
 
 if __name__ == '__main__':

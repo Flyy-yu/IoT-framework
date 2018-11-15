@@ -9,9 +9,9 @@ import platform
 import atexit
 import shlex
 import textwrap
-from resources import banner
+from lib import banner
 from colorama import Fore, Back
-from resources.prettytable import PrettyTable
+from lib.prettytable import PrettyTable
 import importlib
 
 PROMPT = "IOT-CLI"

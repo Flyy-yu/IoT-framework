@@ -319,7 +319,7 @@ class RopgadgetSubInterpreter(SubInterpreter):
                 print("Please check the option name. Type 'options' to get help... ")
 
 
-class ApktoolsSubInterpreter(SubInterpreter):
+class ApktoolSubInterpreter(SubInterpreter):
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)

@@ -1,5 +1,5 @@
 {
-  "name": "apktools",
+  "name": "apktool",
   "intro": "A tool for reverse engineering 3rd party, closed, binary Android apps.",
   "links": [
     "https://ibotpeaches.github.io/Apktool/"

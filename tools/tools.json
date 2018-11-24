@@ -59,6 +59,10 @@
     "dirb": {
       "Description": "DIRB is a Web Content Scanner. It looks for existing Web Objects by launching a dictionary based attack against a web server",
       "Example": "use dirb"
+    },
+    "ubertooth": {
+      "Description": "capture nearby bluetooth traffic and store traffic data in pcap file.",
+      "Example": "use ubertooth"
     }
   }
 }

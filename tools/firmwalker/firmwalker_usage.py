@@ -7,7 +7,7 @@ class Firmwalker(UtilityTool):
         super(Firmwalker, self).__init__(config_file)
 
     def get_basic_command(self, cmd):
-        command = 'cd /home/iot/Desktop/firmwalker && ./firmwalker.sh {} ~/Desktop/result.txt'.format(cmd['cmd'])
+        command = 'cd /home/iot/tools/firmwalker && ./firmwalker.sh {} ~/Desktop/result.txt'.format(cmd['dir'])
         return command
 
 

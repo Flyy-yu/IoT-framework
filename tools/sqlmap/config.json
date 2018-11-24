@@ -15,7 +15,7 @@
       "intro": "Path and name of the APK file",
       "required": 0
     },
-    "post_body": {
+    "body": {
       "default": "~/Desktop/sql.txt",
       "intro": "Body of the post request(from BurpSuite).",
       "required": 0

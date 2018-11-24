@@ -1,0 +1,15 @@
+{
+  "command": {
+    "ip": {
+      "default": "8.8.8.8",
+      "intro": "ip address",
+      "required": 1
+    }
+  },
+  "version": "x.x",
+  "intro": "http://ubertooth.sourceforge.net/",
+  "name": "ubertooth",
+  "links": [
+    "http://ubertooth.sourceforge.net/"
+  ]
+}

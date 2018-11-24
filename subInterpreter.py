@@ -129,7 +129,7 @@ class SubInterpreter(Cmd):
         options\t\t show all options and current setting\n \
         set\t\t update config value\n \
         back\t\t back to the previous CLI level\n\n " + Fore.RESET + \
-            Fore.RED + "\t run\t\t generate the command based on user's setting and run the command in a new terminal\n\n" + Fore.RESET + \
+            Fore.RED + "\t run\t\t generate command from user's setting, run the command in a new terminal\n\n" + Fore.RESET + \
             Fore.MAGENTA + "\n \Type ? to list full commands\n And you can type help <command> to get help\n\
         ==============================================" + Fore.RESET
 
@@ -408,7 +408,7 @@ class SqlmapSubInterpreter(SubInterpreter):
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
-        options = ['type', 'url', 'post_body', 'param']
+        options = ['type', 'url', 'body', 'param']
         if len(setting_args) != 2:
             print("check your args! Type 'options' to get help...")
         else:

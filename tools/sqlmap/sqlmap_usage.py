@@ -12,7 +12,7 @@ class Sqlmap(UtilityTool):
             command = 'sqlmap {} --dump --level=5 --risk=3 --threads=3'.format(cmd['url'])
 
         if cmd['type'].lower() == 'post':
-            command = 'sqlmap -r {} -p {} --dump --level=5 --risk=3 --threads=3'.format(cmd['post_body'], cmd['param'])
+            command = 'sqlmap -r {} -p {} --dump --level=5 --risk=3 --threads=3'.format(cmd['body'], cmd['param'])
         return command
 
 
@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     cmd = {}
     cmd["type"] = ''
-    cmd["post_body"] = ''
+    cmd["body"] = ''
 
     cmd = (test_obj.get_basic_command(cmd))
 

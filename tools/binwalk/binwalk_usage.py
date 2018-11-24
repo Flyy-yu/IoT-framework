@@ -17,7 +17,7 @@ if __name__ == '__main__':
     test_obj = Binwalk("config.json")
     cmd = {}
 
-    cmd['imagefile'] = ''
+    cmd['imagefile'] = '~/Desktop/test.bin'
 
     cmd = (test_obj.get_basic_command(cmd))
     test_obj.run_command(3, cmd)

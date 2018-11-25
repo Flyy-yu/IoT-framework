@@ -38,4 +38,25 @@ git clone https://github.com/JonathanSalwan/ROPgadget
 cd ROPgadget
 python setup.py install
 apt-get install -y wireshark
-
+cd ~
+mkdir tools
+cd ~/tools/
+wget https://github.com/greatscottgadgets/libbtbb/archive/2018-08-R1.tar.gz -O libbtbb-2018-08-R1.tar.gz
+tar -xf libbtbb-2018-08-R1.tar.gz
+cd libbtbb-2018-08-R1
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+sudo ldconfig
+cd ~/tools/
+wget https://github.com/greatscottgadgets/ubertooth/releases/download/2018-08-R1/ubertooth-2018-08-R1.tar.xz
+tar xf ubertooth-2018-08-R1.tar.xz
+cd ubertooth-2018-08-R1/host
+mkdir build
+cd build
+cmake ..
+make
+sudo make install
+sudo ldconfig

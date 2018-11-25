@@ -6,7 +6,7 @@ class Ubertooth(UtilityTool):
         super(Ubertooth, self).__init__(config_file)
 
     def get_basic_command(self, cmd):
-        command = "sudo ubertooth-btle -p -c ~/Desktop/cap.pcap"
+        command = "sudo ubertooth-btle -f -c ~/Desktop/cap.pcap"
         return command
 
 

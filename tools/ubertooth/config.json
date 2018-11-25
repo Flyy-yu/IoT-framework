@@ -1,13 +1,13 @@
 {
   "command": {
-    "ip": {
-      "default": "8.8.8.8",
-      "intro": "ip address",
+    "none": {
+      "default": "none",
+      "intro": "you do not need to input anything",
       "required": 1
     }
   },
   "version": "x.x",
-  "intro": "http://ubertooth.sourceforge.net/",
+  "intro": "sniff active connections and save data to pcap file",
   "name": "ubertooth",
   "links": [
     "http://ubertooth.sourceforge.net/"

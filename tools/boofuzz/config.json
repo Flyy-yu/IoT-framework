@@ -1,0 +1,20 @@
+{
+  "name": "csrf",
+  "intro": "This tool help you generate CSRF Poc HTML file",
+  "links": [
+    "https://google.com"
+  ],
+  "command": {
+    "port": {
+      "default": "8080",
+      "intro": "The port number for the running server",
+      "required": 1
+    },
+    "ip": {
+      "default": "192.168.1.1",
+      "intro": "Ip address of the device",
+      "required": 1
+    }
+  },
+  "version": "x.x"
+}

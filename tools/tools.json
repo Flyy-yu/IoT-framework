@@ -63,6 +63,10 @@
     "ubertooth": {
       "Description": "capture nearby bluetooth traffic and store traffic data in pcap file.",
       "Example": "use ubertooth"
+    },
+    "boofuzz": {
+      "Description": "fuzzing a tcp port with random string",
+      "Example": "use boofuzz"
     }
   }
 }

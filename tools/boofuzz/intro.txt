@@ -1,0 +1,3 @@
+boofuzz: Network Protocol Fuzzing for Humans
+
+Boofuzz is a fork of and the successor to the venerable Sulley fuzzing framework. Besides numerous bug fixes, boofuzz aims for extensibility. The goal: fuzz everything.

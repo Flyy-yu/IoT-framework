@@ -1,2 +1,0 @@
-https://help.ubuntu.com/community/Minicom
-#TODO add this

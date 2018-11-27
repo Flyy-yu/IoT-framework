@@ -1,5 +1,3 @@
-# the basic command: ping 8.8.8.8
-
 from tools.Utility import *
 
 

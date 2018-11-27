@@ -1,6 +1,3 @@
-# binwalk -Mre filename
-#
-
 from tools.Utility import *
 
 

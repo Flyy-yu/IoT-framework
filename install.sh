@@ -1,4 +1,4 @@
-apt-get update
+apt-get -y update
 apt-get install -y vim
 apt-get install -y openssh-server
 apt-get install -y hydra
@@ -22,6 +22,7 @@ apt-get install -y socat
 apt-get install -y aircrack-ng
 apt-get install -y libcurl4-gnutls-dev
 apt-get install -y android-tools-adb android-tools-fastboot
+sudo pip install boofuzz
 sudo pip3 install scapy
 sudo pip install scapy
 sudo pip3 install pyshark

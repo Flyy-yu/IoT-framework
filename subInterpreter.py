@@ -486,14 +486,12 @@ class BoofuzzSubInterpreter(SubInterpreter):
                 update.refresh(self.json_file)
             else:
                 print("Please check the option name. Type 'options' to get help... ")
-
-        def do_run(self, args):
-
-            tool_name = 'BoofuzzSubInterpreter'
-            tool_module_name = 'tools.{}.{}'.format(tool_name.lower(), tool_name.lower() + '_usage')
-            current_module = importlib.import_module(tool_module_name)
-            current_class = getattr(current_module, tool_name)
-            current_object = current_class(self.json_file)
-            raw_cmd = Print_Utils().print_options(self.json_file)[1]
-            print(raw_cmd)
-            current_object.run_fuzzer(raw_cmd)
+    def do_run(self, args):
+        tool_name = 'BoofuzzSubInterpreter'
+        tool_module_name = 'tools.{}.{}'.format(tool_name.lower(), tool_name.lower() + '_usage')
+        current_module = importlib.import_module(tool_module_name)
+        current_class = getattr(current_module, tool_name)
+        current_object = current_class(self.json_file)
+        raw_cmd = Print_Utils().print_options(self.json_file)[1]
+        print(raw_cmd)
+        current_object.run_fuzzer(raw_cmd)

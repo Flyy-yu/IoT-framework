@@ -487,7 +487,7 @@ class BoofuzzSubInterpreter(SubInterpreter):
             else:
                 print("Please check the option name. Type 'options' to get help... ")
     def do_run(self, args):
-        tool_name = 'BoofuzzSubInterpreter'
+        tool_name = 'Boofuzz'
         tool_module_name = 'tools.{}.{}'.format(tool_name.lower(), tool_name.lower() + '_usage')
         current_module = importlib.import_module(tool_module_name)
         current_class = getattr(current_module, tool_name)

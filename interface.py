@@ -4,25 +4,25 @@ PROMPT = "IOT-CLI"
 
 
 class Resource_Interface(Cmd):
-    prompt = PROMPT + ">>" + Fore.RED + " (tools_lib)> " + Fore.RESET
+    prompt = PROMPT + ">>" + Fore.RED + " (Resource)> " + Fore.RESET
 
     def do_show(self, input):
         # WIP now just implementing basic functioning
         t = PrettyTable(header_style='upper', padding_width=0)
-        t.field_names = ["Tools name", "Description", "Example"]
-        t.align["Tools name"] = "c"
+        t.field_names = ["Resource", "Description", "URL"]
+        t.align["Resource"] = "c"
         t.align["Description"] = "l"
-        t.align["Example"] = "l"
+        t.align["URL"] = "l"
 
         with open('resources/resources.json') as f:
             tool_info = json.load(f)
             # print tool_info
-            for tool in tool_info['Tools'].keys():
+            for tool in tool_info['Resource'].keys():
                 name = textwrap.fill(str(tool), 20)
                 description = textwrap.fill(
-                    str(tool_info['Tools'][name]['Description']), 50)
+                    str(tool_info['Resource'][name]['Description']), 50)
                 example = textwrap.fill(
-                    str(tool_info['Tools'][name]['Example']), 30)
+                    str(tool_info['Resource'][name]['URL']), 30)
                 t.add_row([name, description, example])
                 padding = '{s:{c}^{n}}'.format(s='-', n=20, c='-')
                 t.add_row([padding, padding, padding])

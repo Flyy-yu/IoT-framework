@@ -1,64 +1,12 @@
 {
-  "Tools": {
-    "hydra": {
-      "Description": "Hydra is a very well-known and respected network log on cracker (password cracking tool)",
-      "Example": "use hydra"
+  "Resource": {
+    "gdb": {
+      "Description": "Different architecture of GDB",
+      "URL":"https://github.com/praetorian-inc/DVRF/tree/master/gdb"
     },
-    "arpspoof": {
-      "Description": "Man in the middle attack between client and server ",
-      "Example": "use arpspoof"
-    },
-    "sslsplit": {
-      "Description": "SSLsplit is a tool for man-in-the-middle attacks against SSL/TLS encrypted network connections.",
-      "Example": "use sslsplit"
-    },
-    "tftp": {
-      "Description": "Trivial File Transfer Protocol (TFTP) is an Internet software utility for transferring files that is simpler to use than the File Transfer Protocol (FTP) but less capable.",
-      "Example": "use tftp"
-    },
-    "binwalk": {
-      "Description": "Binwalk is a fast, easy to use tool for analyzing, reverse engineering, and extracting firmware images..",
-      "Example": "use binwalk"
-    },
-    "apktools": {
-      "Description": "A tool for reverse engineering 3rd party, closed, binary Android apps..",
-      "Example": "use apktools"
-    },
-    "baudrate": {
-      "Description": "Finding the baud rate of serial connections.",
-      "Example": "use baudrate"
-    },
-    "killerbee": {
-      "Description": "This is KillerBee - Framework and Tools for Attacking ZigBee and IEEE 802.15.4 networks..",
-      "Example": "use killerbee"
-    },
-    "kismet": {
-      "Description": "Kismet is a network detector, packet sniffer, and intrusion detection system for 802.11 wireless LANs.",
-      "Example": "use kismet"
-    },
-    "jdcore": {
-      "Description": "Java decompiler, can decompile apk and jar file",
-      "Example": "use jdcore"
-    },
-    "firmwalker": {
-      "Description": "A simple bash script for searching the extracted or mounted firmware file system.",
-      "Example": "use firmwalker"
-    },
-    "minicom": {
-      "Description": "Minicom is a text-based modem control and terminal emulation program for Unix-like operating systems",
-      "Example": "use minicom"
-    },
-    "sqlmap": {
-      "Description": "sqlmap is an tool that automates the process of detecting and exploiting SQL injection flaws",
-      "Example": "use sqlmap"
-    },
-    "csrf": {
-      "Description": "generate poc HTML file for the csrf attack",
-      "Example": "use csrf"
-    },
-    "dirb": {
-      "Description": "DIRB is a Web Content Scanner. It looks for existing Web Objects by launching a dictionary based attack against a web server",
-      "Example": "use dirb"
+    "netstat": {
+      "Description": "Different architecture of netstat",
+      "URL":"https://github.com/ETiV/netstat-emb/tree/master/bin"
     }
   }
 }

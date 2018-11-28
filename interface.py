@@ -29,23 +29,7 @@ class Resource_Interface(Cmd):
         print(t)
 
     def do_use(self, command):
-        prompt = PROMPT + ">>" + Fore.RED + \
-                 " (tools_lib)>> " + Fore.RESET + \
-                 Back.RED + command + " >>>" + Back.RESET
-        json_dir = 'tools/{}/config.json'.format(command.lower())
-
-        try:
-            class_name = command.lower()[0].upper() + command.lower()[1:] + 'SubInterpreter'
-            current_module = importlib.import_module('subInterpreter')
-            current_class = getattr(current_module, class_name)
-            use_cli = current_class(json_dir)
-        except:
-            print(
-                Fore.YELLOW + "Unknown Tools name, you can type 'show' to know all supported tools." + Fore.RESET)
-            return
-
-        use_cli.prompt = prompt
-        use_cli.cmdloop()
+        pass
 
     def do_back(self, args):
         print("Back to Main CLI...")

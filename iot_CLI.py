@@ -26,7 +26,6 @@ class IOT_CLI(Cmd):
         sub_intro = Fore.LIGHTCYAN_EX + "\nHere is a resource sub-module:\n\
         ==============================================\n \
         show\t\t show all avaiable resource\n \
-        xx\t\t use a xx\n \
         back\t\t back to the main CLI\n\n \
         Type ? to list full commands\n\
         And you can type help <command> to get help\n\

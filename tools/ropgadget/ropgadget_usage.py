@@ -9,7 +9,7 @@ class Ropgadget(UtilityTool):
         super(Ropgadget, self).__init__(config_file)
 
     def get_basic_command(self, cmd):
-        command = 'ROPgadget --multibr --binary {} > gadget.txt'.format(cmd['binary'])
+        command = 'ROPgadget --multibr --binary {} | grep {}'.format(cmd['binary'],cmd['i'])
         return command
 
 
@@ -18,7 +18,7 @@ if __name__ == '__main__':
     test_obj = Ropgadget("config.json")
 
     cmd = {}
-    cmd["binary"] = ""
-
+    cmd["binary"] = "~/Desktop/rop"
+    cmd['i'] = 'add ecx, ecx ; ret'
     cmd = (test_obj.get_basic_command(cmd))
     test_obj.run_command(3, cmd)

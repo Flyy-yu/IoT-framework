@@ -9,6 +9,11 @@
       "default": "libc.so.6",
       "intro": "Name and path of the binary",
       "required": 1
+    },
+    "i": {
+      "default": "add ecx, ecx ; ret",
+      "intro": "The instruction you want to search",
+      "required": 1
     }
   },
   "version": "x.x"

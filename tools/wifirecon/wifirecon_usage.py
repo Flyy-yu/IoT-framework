@@ -1,7 +1,7 @@
 # the basic command: ping 8.8.8.8
 from tools.Utility import *
-from wdchk.capture import *
-from wdchk.analysis import *
+from .script.capture import *
+from .script.analysis import *
 
 class Wifirecon(UtilityTool):
     def __init__(self, config_file):
@@ -23,5 +23,5 @@ class Wifirecon(UtilityTool):
 
 
 if __name__ == "__main__":
-    print("Unit Test")
+    pass
 

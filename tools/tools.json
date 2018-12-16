@@ -1,5 +1,9 @@
 {
   "Tools": {
+    "wifirecon": {
+      "Description": "tool for wifirecon",
+      "Example": "use wifirecon"
+    },
     "hydra": {
       "Description": "Hydra is a very well-known and respected network log on cracker (password cracking tool)",
       "Example": "use hydra"

@@ -323,7 +323,7 @@ class ApktoolSubInterpreter(SubInterpreter):
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
-        options = ['method', 'apk','folder']
+        options = ['method', 'apk', 'folder']
         if len(setting_args) != 2:
             print("check your args! Type 'options' to get help...")
         else:
@@ -471,11 +471,12 @@ class UbertoothSubInterpreter(SubInterpreter):
             else:
                 print("Please check the option name. Type 'options' to get help... ")
 
+
 class BoofuzzSubInterpreter(SubInterpreter):
     def do_set(self, args):
         update = Update_Setting()
         setting_args = shlex.split(args)
-        options = ['ip','port']
+        options = ['ip', 'port']
         if len(setting_args) != 2:
             print("check your args! Type 'options' to get help...")
         else:
@@ -486,6 +487,7 @@ class BoofuzzSubInterpreter(SubInterpreter):
                 update.refresh(self.json_file)
             else:
                 print("Please check the option name. Type 'options' to get help... ")
+
     def do_run(self, args):
         tool_name = 'Boofuzz'
         tool_module_name = 'tools.{}.{}'.format(tool_name.lower(), tool_name.lower() + '_usage')
@@ -495,3 +497,20 @@ class BoofuzzSubInterpreter(SubInterpreter):
         raw_cmd = Print_Utils().print_options(self.json_file)[1]
         print(raw_cmd)
         current_object.run_fuzzer(raw_cmd)
+
+
+class WifireconSubInterpreter(SubInterpreter):
+    def do_set(self, args):
+        update = Update_Setting()
+        setting_args = shlex.split(args)
+        options = ['interface', 'path', 'method', 'amount']
+        if len(setting_args) != 2:
+            print("check your args! Type 'options' to get help...")
+        else:
+            option_name = setting_args[0].lower()
+            setting_value = setting_args[1]
+            if option_name in options:
+                update.set_setting(self.json_file, option_name, setting_value)
+                update.refresh(self.json_file)
+            else:
+                print("Please check the option name. Type 'options' to get help... ")

@@ -10,9 +10,19 @@
       "intro": "wireless interface",
       "required": 1
     },
-    "MAC": {
-      "default": "22",
-      "intro": "ff:ff:ff:ff:ff:ff",
+    "path": {
+      "default": "/home/iot/Desktop/temp.pcap",
+      "intro": "Path of the Pcap file",
+      "required": 1
+    },
+    "method": {
+      "default": "analysis",
+      "intro": "capture or analysis",
+      "required": 1
+    },
+    "amount": {
+      "default": "3000",
+      "intro": "How many packets to capture",
       "required": 1
     }
   },

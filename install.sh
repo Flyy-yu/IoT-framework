@@ -3,7 +3,6 @@ apt-get install -y vim
 apt-get install -y openssh-server
 apt-get install -y hydra
 apt-get install -y binwalk
-apt-get install -y qemu
 apt-get install -y git
 apt-get install -y python-pip
 apt-get install -y python3-pip
@@ -22,6 +21,7 @@ apt-get install -y socat
 apt-get install -y aircrack-ng
 apt-get install -y libcurl4-gnutls-dev
 apt-get install -y android-tools-adb android-tools-fastboot
+apt-get install -y python-dnspython
 sudo pip install boofuzz
 sudo pip3 install scapy
 sudo pip install scapy
@@ -34,7 +34,16 @@ git clone https://github.com/longld/peda.git ~/peda
 echo "source ~/peda/peda.py" >> ~/.gdbinit
 cd ~/Desktop
 git clone https://github.com/Flyy-yu/IoT-framework.git
+git clone https://github.com/maurosoria/dirsearch.git
+git clone https://github.com/maaaaz/webscreenshot.git
+git clone https://github.com/guelfoweb/knock.git
+git clone https://github.com/nahamsec/lazyrecon.git
+cd lazyrecon
+sudo pip install -r requirements.txt
+cd ..
 git clone https://github.com/craigz28/firmwalker.git
+git clone https://github.com/aboul3la/Sublist3r.git
+git clone https://github.com/nahamsec/recon_profile.git
 git clone https://github.com/JonathanSalwan/ROPgadget
 cd ROPgadget
 python setup.py install
@@ -45,16 +54,6 @@ cd ~/tools/
 wget https://github.com/greatscottgadgets/libbtbb/archive/2018-08-R1.tar.gz -O libbtbb-2018-08-R1.tar.gz
 tar -xf libbtbb-2018-08-R1.tar.gz
 cd libbtbb-2018-08-R1
-mkdir build
-cd build
-cmake ..
-make
-sudo make install
-sudo ldconfig
-cd ~/tools/
-wget https://github.com/greatscottgadgets/ubertooth/releases/download/2018-08-R1/ubertooth-2018-08-R1.tar.xz
-tar xf ubertooth-2018-08-R1.tar.xz
-cd ubertooth-2018-08-R1/host
 mkdir build
 cd build
 cmake ..
